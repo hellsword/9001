@@ -48,9 +48,15 @@
                         <span class="field"><input type="text" name="tiempo_medicion" class="input-xxlarge" /></span>
                     </p>
 
-                    <p>
+                     <p>
                         <label>Área de proceso</label>
-                        <span class="field"><input type="text" id="area_proceso" name="cod_area" class="input-xxlarge" /></span>
+                        <span class="field">
+                        <select name="cod_area" id="cod_area" class="uniformselect" required="">
+                        @foreach($areas as $area)
+                        <option value="{{$area -> cod_area}}">{{$area -> cod_area}} - {{$area -> nombre}}</option>
+                        @endforeach
+                        </select>
+                        </span>
                     </p>
                     
                     <br />
@@ -95,6 +101,7 @@
         });
 
         //AUTOCOMPLETADO PARA COD_AREA
+        /*
         $(function()
         {
                  $( "#area_proceso" ).autocomplete({
@@ -115,7 +122,7 @@
                 
               };
         });
-
+*/
 
 
 

@@ -46,7 +46,10 @@ class ProcesoController extends Controller
 
     public function create()
     {
-      return view('procesos.create');
+
+      $areas=DB::table('area_procesos')->get();
+
+      return view('procesos.create', ['areas'=> $areas]);
     }
 
 
@@ -80,7 +83,7 @@ class ProcesoController extends Controller
 
 
 
-    public function autocomplete_responsable()
+  public function autocomplete_responsable()
 	{
 		$queries = User::where(function($query)
 		{
@@ -96,7 +99,7 @@ class ProcesoController extends Controller
 	}
 
 
-
+/*
 	public function autocomplete_areaProceso()
 	{
 		$queries = AreaProceso::where(function($query)
@@ -111,7 +114,7 @@ class ProcesoController extends Controller
 		return Response::json($results);
 	
 	}
-
+*/
 
 
 }

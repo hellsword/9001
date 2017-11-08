@@ -24,7 +24,11 @@ Route::get('/usuarios/ver_perfil', 'UsuarioController@ver_perfil');
 //RUTAS AUTOCOMPLETADO EN NUEVO PROCESO
 Route::get('/nuevo_proceso', 'ProcesoController@create');
 Route::get('/search/autocomplete_responsable','ProcesoController@autocomplete_responsable');
-Route::get('/search/autocomplete_areaProceso','ProcesoController@autocomplete_areaProceso');
+//Route::get('/search/autocomplete_areaProceso','ProcesoController@autocomplete_areaProceso');
+
+//RUTAS AUTOCOMPLETADO EN NUEVO RIESGO
+Route::get('/nuevo_riesgo', 'RiesgoController@create');
+Route::get('/search/autocomplete_proceso','RiesgoController@autocomplete_proceso');
 
 //RUTAS AUTOCOMPLETADO EN NUEVO OBJETIVO
 Route::get('/nuevo_objetivo', 'ObjetivoController@create');
@@ -35,6 +39,7 @@ Route::resource('formacion','FormacionController');
 Route::resource('procesos','ProcesoController');
 Route::resource('areas_procesos','AreasProcesoController');
 Route::resource('objetivo','ObjetivoController');
+Route::resource('riesgos','RiesgoController');
 Route::resource('calendario','CalendarioController');
 
 

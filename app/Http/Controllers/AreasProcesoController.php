@@ -29,7 +29,7 @@ class AreasProcesoController extends Controller
       $areas= DB::table('area_procesos')
             ->select('cod_area as cod_area',
                       'nombre as nombre')
-      ->paginate(5);
+      ->paginate(15);
 
       return view('areas_procesos.index')->with('areas',$areas);
     }
