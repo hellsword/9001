@@ -1,6 +1,13 @@
 @extends('layouts.tema')
 @section('contenido')
 
+<style type="text/css">
+    li{
+        background-color: white;
+        list-style-type:none;
+    }
+</style>
+
   <div class="pagetitle">
         <h1>Página principal</h1> <span>Aquí encontrará todo lo que necesite...</span>
     </div><!--pagetitle-->
@@ -31,7 +38,7 @@
                             <li class="one_fifth"><a href="/procesos"><img src="katniss/img/gemicon/settings.png" alt="" /><span>Procesos</span></a></li>
                             <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/archive.png" alt="" /><span>Documentación</span></a></li>
                             <li class="one_fifth"><a href="/areas_procesos"><img src="katniss/img/gemicon/archive.png" alt="" /><span>Áreas de proceso</span></a></li>
-                            <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/archive.png" alt="" /><span>Gestión de riesgos</span></a></li>
+                            <li class="one_fifth"><a href="/riesgos"><img src="katniss/img/gemicon/archive.png" alt="" /><span>Gestión de riesgos</span></a></li>
                             <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/archive.png" alt="" /><span>Medición de procesos</span></a></li>
                            <!-- <li class="one_fifth last"><a href=""><img src="katniss/img/gemicon/notify.png" alt="" /><span>Notifications</span></a></li>  -->
                         </ul>
@@ -198,38 +205,16 @@
                         <h4 class="widgettitle">Procesos recientemente agregados</h4>
                         <div class="widgetcontent">
                             <div id="accordion" class="accordion">
-                                    <h3><a href="#">Proceso 1</a></h3>
+                                @foreach($procesos as $proceso)
+                                    <h3><a href="#">{{$proceso->nombre_proceso}}</a></h3>
                                     <div>
                                         <ul >
-                                            <li>ID: 234</li>
-                                            <li>Responsable: Nicolás Muñoz</li>
-                                            <li>Fecha: 09/08/2017</li>
-                                            <li>Descripción: adsdasdas</li>
+                                            <li>ID: {{$proceso->id_proceso}}</li>
+                                            <li>Responsable: {{$proceso->nombre_user}} {{$proceso->apellido_user}}</li>
+                                            <li>Fecha de creación: {{$proceso->fecha_inicio}}</li>
                                         </ul>
                                     </div>
-                                    <h3><a href="#">Proceso 2</a></h3>
-                                    <div>
-                                        <p>
-                                        ID:
-                                        Responsable:
-                                        Fecha:
-                                        Descripción:
-                                        </p>
-                                    </div>
-                                    <h3><a href="#">Proceso 3</a></h3>
-                                    <div>
-                                        <p>
-                                        ID:
-                                        Responsable:
-                                        Fecha:
-                                        Descripción:
-                                        </p>
-                                        <ul >
-                                            <li>List item one</li>
-                                            <li>List item two</li>
-                                            <li>List item three</li>
-                                        </ul>
-                                    </div>
+                                @endforeach
                             </div><!--#accordion-->
                         </div><!--widgetcontent-->
 

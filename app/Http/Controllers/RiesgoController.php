@@ -18,12 +18,10 @@ class RiesgoController extends Controller
 {
     public function index()
     {
-      $riesgos= DB::table('riesgos')
-            ->select('id_riesgo as id_riesgo',
-                      'titulo as titulo',
-                      'descripcion as descripcion',
-                      'id_proceso as id_proceso')
-      ->paginate(5);
+      $riesgos = DB::table('riesgos as r')
+         ->join ('proceso as p', 'r.id_proceso', '=' ,'p.id_proceso')   
+         ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion')
+         ->paginate(5);
 
       return view('riesgos.index')->with('riesgos',$riesgos);
     }
@@ -33,10 +31,31 @@ class RiesgoController extends Controller
     public function create()
     {
 
-      //$areas=DB::table('area_procesos')->get();
-
-      //return view('procesos.create', ['areas'=> $areas]);
     	return view('riesgos.create');
+    }
+
+
+    public function store(Request $request){ 
+
+      try {
+
+        DB::beginTransaction();
+      
+        //Se agrega la informacion del riesgo
+        $riesgo = new Riesgo;
+        $riesgo->id_proceso=$request->get('id_proceso');
+        $riesgo->titulo=$request->get('titulo');
+        $riesgo->descripcion=$request->get('descripcion');
+        $riesgo->save(); 
+
+        DB::commit();
+          
+      } catch (Exception $e) {
+          DB::rollback();
+      }
+
+      return Redirect::to('/home');  
+
     }
 
 

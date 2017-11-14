@@ -28,22 +28,21 @@
                     
                     <p>
                         <label>Proceso</label>
-                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
                     </p>
 
                     <p>
                         <label>Título del riesgo</label>
-                        <span class="field"><input type="text" name="titulo" class="input-xxlarge"  /></span>
+                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" placeholder="Defina un título que describa este riesgo" /></span>
                     </p>
 
                     <p>
-                        <label>Descripción</label>
-                        <span class="field"><input type="text" name="descripcion"  class="input-xxlarge" /></span>
+                        <div id="lista_metas"></div>
                     </p>
                     
                     <br />
                     <p align="right">
-                        <button type="submit" class="btn btn-primary">Aceptar</button> &nbsp;  <a href="/home" class="btn btn-danger">Cancelar</a> 
+                        <button type="submit" class="btn btn-primary">Aceptar</button> &nbsp;  <a href="/riesgos" class="btn btn-danger">Cancelar</a> 
                     </p>
                     {{ Form::close() }}
                 {!!Form::close()!!}
@@ -80,6 +79,13 @@
                 
               };
         });
+
+
+
+         var str = '<label>Descripción</label>'+
+                        '<span class="field"><textarea id="descripcion" name="descripcion" cols="80" rows="5" class="span5" style="resize: vertical" placeholder="Esta es\nla descipcion\ndel riesgo de un proceso"></textarea></span>';
+
+        document.getElementById('lista_metas').innerHTML = str;
 
 </script>
 

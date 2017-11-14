@@ -13,6 +13,7 @@ use App\AreaProceso;
 use App\Proceso;
 use App\Personal;
 use App\User;
+use App\Documentacion;
 
 use DB;
 
@@ -61,7 +62,7 @@ class ProcesoController extends Controller
 
         DB::beginTransaction();
       
-      	//Se agrega la informacion basica del usuario
+      	//Se agrega la informacion del proceso
         $proceso = new Proceso;
         $proceso->nombre=$request->get('nombre');
         $proceso->id_responsable=$request->get('id_responsable');
@@ -70,6 +71,19 @@ class ProcesoController extends Controller
         $proceso->tiempo_medicion=$request->get('tiempo_medicion');
         $proceso->cod_area=$request->get('cod_area');
         $proceso->save(); 
+
+
+        //Se agrega la informacion de documentacio
+        /*
+        $documentacion = new Documentacion;
+        $documentacion->vesion_proceso= '1.0.0';
+        $documentacion->fecha_inicio= date("d/m/Y");
+        $documentacion->fecha_fin= '';
+        $documentacion->num_cambios= 0;
+        $documentacion->num_participantes= 1;
+        $documentacion->id_proceso= $proceso->id_proceso;
+        $documentacion->save(); 
+        */
 
         DB::commit();
           

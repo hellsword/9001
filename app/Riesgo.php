@@ -8,7 +8,7 @@ class Riesgo extends Model
 {
     public $timestamps = false;
 	
-    protected $table='riegos'; // asignamos la tabla a la cual hara referencia.
+    protected $table='riesgos'; // asignamos la tabla a la cual hara referencia.
 
     protected $primaryKey='id_riesgo'; //asignamos la PK de nuestra tabla.
 
