@@ -1,6 +1,8 @@
 @extends ('layouts.tema')
 @section ('contenido')
 
+
+
 <div class="pagetitle">
     <h1>Lista de usuarios</h1>
 </div><!--pagetitle-->

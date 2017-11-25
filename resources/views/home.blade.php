@@ -36,7 +36,7 @@
                            <!-- <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/calendar.png" alt="" /><span>Events</span></a></li> -->
                             <li class="one_fifth"><a href="/lista"><img src="katniss/img/gemicon/users.png" alt="" /><span>RRHH</span></a></li>
                             <li class="one_fifth"><a href="/procesos"><img src="katniss/img/gemicon/settings.png" alt="" /><span>Procesos</span></a></li>
-                            <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/archive.png" alt="" /><span>Documentación</span></a></li>
+                            <li class="one_fifth"><a href="/documentacion"><img src="katniss/img/gemicon/archive.png" alt="" /><span>Documentación</span></a></li>
                             <li class="one_fifth"><a href="/areas_procesos"><img src="katniss/img/gemicon/archive.png" alt="" /><span>Áreas de proceso</span></a></li>
                             <li class="one_fifth"><a href="/riesgos"><img src="katniss/img/gemicon/archive.png" alt="" /><span>Gestión de riesgos</span></a></li>
                             <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/archive.png" alt="" /><span>Medición de procesos</span></a></li>

@@ -18,6 +18,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/getfile/{id}', function($id)
+{
+    $file = DB::select('SELECT * FROM archivo WHERE num_archivo = ?', array($id));
+    $data = $file[0]->archivo;
+    return Response::make($data, 200, array('Content-type' => 'application/pdf'));
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/ver_perfil', 'UsuarioController@ver_perfil');
 
@@ -35,6 +42,9 @@ Route::get('/nuevo_objetivo', 'ObjetivoController@create');
 Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_objetivo');
 
 Route::resource('usuarios','UsuarioController');
+Route::resource('documentacion','DocumentacionController');
+Route::resource('documento','DocumentoController');
+Route::resource('archivo','ArchivoController');
 Route::resource('formacion','FormacionController');
 Route::resource('procesos','ProcesoController');
 Route::resource('areas_procesos','AreasProcesoController');

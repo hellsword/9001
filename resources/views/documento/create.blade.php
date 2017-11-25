@@ -13,36 +13,37 @@
 
 <div class="maincontent">
         <div class="contentinner">
-            <h4 class="widgettitle nomargin shadowed">Crear objetivo</h4>
+            <h4 class="widgettitle nomargin shadowed">Nuevo documento</h4>
             <div class="widgetcontent bordered shadowed nopadding" id="formulario">
-            	{!!Form::open(array('url'=>'objetivo', 'method'=>'POST', 'class'=>'stdform stdform2', 'autocomplete'=>'off'))!!}
-                
-                    <!-- FORMULARIO PARA AUTOCOMPLETADO -->
-                    {{ Form::open(['url'=>'#','id'=>'search-form','method' => 'get']) }}
+            	{!!Form::open(array('url'=>'documento', 'method'=>'POST', 'class'=>'stdform stdform2', 'autocomplete'=>'off'))!!}
+
+                    <input type="hidden" name="id_doc" id="id_doc" class="input-xxlarge"  value="{{$documentacion_id}}" />
                     <p>
-                        <label>Acción a realizar:</label>
-                        <span class="field"><input type="text" name="to_make" id="to_make" class="input-xxlarge" /></span>
+                        <label>Título:</label>
+                        <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
-                        <label>Recursos:</label>
-                        <span class="field"><input type="text" name="resources" id="resources" class="input-xxlarge" /></span>
-                    </p>
-                    <p>
-                        <label>Tipo de indicador:</label>
-                        <span class="field"><input type="text" name="tipo_indicador" id="tipo_indicador" class="input-xxlarge" /></span>
+                        <label>Autor:</label>
+                        <span class="field"><input type="text" name="autor_nombre" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
+                        <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge" value="{{ Auth::user()->id}}" /></span>
                     </p>
 
                     <p>
-                        <label>Proceso del que deriva:</label>
-                        <span class="field"><input type="text" name="id_proceso" id="id_proceso" class="input-xxlarge" /></span>
+                        <label>Fecha:</label>
+                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
+                    </p>
+
+                    <p>
+                        <label>Cuerpo del documento:</label>
+                        <span class="field"><textarea id="cuerpo" name="cuerpo" cols="100" rows="15" class="span5" style="resize: vertical"></textarea></span> 
                     </p>
 
                     <p class="stdformbutton">
                         <button type="submit" class="btn btn-primary">Aceptar</button>
-                        <button type="reset" class="btn">Reiniciar</button>
+                        <a href="/documentacion/{{$documentacion_id}}" class="btn btn-danger" role="button">Volver</a>
                     </p>
-                    {!!Form::close()!!}
+                    
                 {!!Form::close()!!}
             </div>
         </div>

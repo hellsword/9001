@@ -4,22 +4,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>9001</title>
 
-<link rel="stylesheet" href="{{ asset('extra/css/bootstrap.css') }}">
-
 <link rel="stylesheet" href="{{ asset('katniss/css/style.default.css') }}">
 <link rel="stylesheet" href="{{ asset('katniss/prettify/prettify.css') }}">
-<link rel="stylesheet" href="{{ asset('katniss/css/jquery.ui.css') }}">
+<link rel="stylesheet" href="{{ asset('katniss/css/bootstrap-fileupload.min.css') }}">
+<link rel="stylesheet" href="{{ asset('katniss/css/bootstrap-timepicker.min.css') }}">
+
 
 <script type="text/javascript" src="{!! asset('katniss/prettify/prettify.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/jquery-1.9.1.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/jquery-migrate-1.1.1.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/jquery-ui-1.9.2.min.js') !!}"></script>
-<script type="text/javascript" src="{!! asset('katniss/js/jquery.flot.min.js') !!}"></script>
-<script type="text/javascript" src="{!! asset('katniss/js/jquery.flot.resize.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/bootstrap-fileupload.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/bootstrap-timepicker.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/jquery.uniform.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/jquery.validate.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/jquery.tagsinput.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/jquery.autogrow-textarea.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/jquery.tagsinput.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/charCount.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/ui.spinner.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/chosen.jquery.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/jquery.cookie.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/custom.js') !!}"></script>
-<script type="text/javascript" src="{!! asset('katniss/js/jquery.smartWizard.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('katniss/js/forms.js') !!}"></script>
 
 
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
