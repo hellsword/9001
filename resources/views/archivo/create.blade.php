@@ -12,7 +12,7 @@
         <div class="contentinner">
             <h4 class="widgettitle nomargin shadowed">Subir archivo</h4>
             <div class="widgetcontent bordered shadowed nopadding" id="formulario">
-            	{!!Form::open(array('url'=>'archivo', 'method'=>'POST', 'class'=>'stdform stdform2', 'files' => true, 'autocomplete'=>'off'))!!}
+            	{!!Form::open(array('url'=>'archivo', 'method'=>'POST', 'class'=>'stdform stdform2', 'files' => true, 'enctype' => 'multipart/form-data', 'autocomplete'=>'off'))!!}
                 
                     <input type="hidden" name="id_doc" id="id_doc" class="input-xxlarge"  value="{{$documentacion_id}}" />
                     <p>

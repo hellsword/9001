@@ -86,4 +86,12 @@ class DocumentoController extends Controller
 
 			return view('documento.show', ['documento'=> $documento]);
 	}
+
+
+	public function destroy($id_doc, $num_documento)
+    {
+      return $id_doc;
+    }
+
+
 }

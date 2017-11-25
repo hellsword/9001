@@ -12,17 +12,25 @@
 */
 
 
+
+
 Route::get('/', function () {
     return view('auth/login');
 });
 
 Auth::routes();
 
+//Descarga el archivo
 Route::get('/getfile/{id}', function($id)
 {
-    $file = DB::select('SELECT * FROM archivo WHERE num_archivo = ?', array($id));
-    $data = $file[0]->archivo;
-    return Response::make($data, 200, array('Content-type' => 'application/pdf'));
+    $file =  DB::table('archivo')->where('num_archivo', '=', $id)->first();
+    $data = $file->archivo;
+    $data_arr = explode("-",$data);
+    $nombre = '';
+    for ($x = 1; $x < count($data_arr); $x++){
+    	$nombre = $nombre.$data_arr[$x];
+    } 
+    return response()->download(public_path($data), $nombre);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

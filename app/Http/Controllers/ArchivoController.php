@@ -58,9 +58,10 @@ class ArchivoController extends Controller
 
              //AQUI SE GUARDA EL ARCHIVO
             $file = Input::file('archivo');
-            $doc = file_get_contents('data:application/pdf;base64,'.base64_encode($file));
-
-            $archivo->archivo = $doc; 
+            $aleatorio = str_random(50);
+            $nombre = $aleatorio.'-'.$file->getClientOriginalName();
+            $file->move('uploads', $nombre);
+            $archivo->archivo = '/uploads/'.$nombre;
             $archivo->save(); 
 
             DB::commit();
@@ -72,4 +73,12 @@ class ArchivoController extends Controller
         return redirect()->route('documentacion.index')->with('info','El documento ha sido creado y guardado');
 
 	}
+
+
+    public function destroy($id_doc, $num_documento)
+    {
+      $archivo = Documento::find($id_doc, $num_documento);
+      $archivo->delete();
+      return Redirect::to('documentacion');
+    }
 }

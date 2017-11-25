@@ -105,7 +105,7 @@
                 
             @if(Auth::check())
             <div class="dropdown userinfo">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/page.html">Hola, {{ Auth::user()->nombre}} <b class="caret"></b></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/page.html">Hola, {{ Auth::user()->nombre}} {{ Auth::user()->apellido}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="/usuarios/ver_perfil"><span class="icon-edit"></span> Mi perfil</a></li>
                 <li><a href=""><span class="icon-wrench"></span> Ajustes</a></li>

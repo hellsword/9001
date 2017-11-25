@@ -13,6 +13,6 @@ class Archivo extends Model
     protected $primaryKey='id_doc, num_archivo'; //asignamos la PK de nuestra tabla.
 
      protected $fillable = [
-        'autor', 'fecha', 'archivo', 
+        'autor', 'fecha', 'archivo', 'archivo_name', 'archivo_mime', 'archivo_size' 
     ];
 }
