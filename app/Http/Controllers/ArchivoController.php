@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 
 use DB;
+use File;
+use Validator;
 
 //Modelos
 use App\Archivo;
@@ -39,46 +42,60 @@ class ArchivoController extends Controller
 
 
     public function store(Request $request){
-		
-		 try {
 
-        DB::beginTransaction();
-      
-            $archivo = new Archivo;
-             $lastValue = DB::table('archivo')->orderBy('num_archivo', 'desc')->first();
-            if(count($lastValue) < 1){
-              $archivo->num_archivo = 1;   
-            }else{
-              $archivo->num_archivo = $lastValue->num_archivo + 1 ;
-            }
-             $archivo->id_doc = $request->get('id_doc');
-             $archivo->titulo = $request->get('titulo');
-             $archivo->fecha = $request->get('fecha');
-             $archivo->autor = $request->get('autor');
+        //Se lee el archivo
+        $file = Input::file('archivo');
 
-             //AQUI SE GUARDA EL ARCHIVO
-            $file = Input::file('archivo');
-            $aleatorio = str_random(50);
-            $nombre = $aleatorio.'-'.$file->getClientOriginalName();
-            $file->move('uploads', $nombre);
-            $archivo->archivo = '/uploads/'.$nombre;
-            $archivo->save(); 
+        if ($file->getSize()/1024/1024 > 10) {
+            return 'No puede subir archivos que pesen más de 10Mb';
+        }
+        else{
 
-            DB::commit();
+    		try {
+
+            DB::beginTransaction();
           
-      } catch (Exception $e) {
-          DB::rollback();
-      }
+                $archivo = new Archivo;
+                 $lastValue = DB::table('archivo')->orderBy('num_archivo', 'desc')->first();
+                if(count($lastValue) < 1){
+                  $archivo->num_archivo = 1;   
+                }else{
+                  $archivo->num_archivo = $lastValue->num_archivo + 1 ;
+                }
+                 $archivo->id_doc = $request->get('id_doc');
+                 $archivo->titulo = $request->get('titulo');
+                 $archivo->fecha = $request->get('fecha');
+                 $archivo->autor = $request->get('autor');
 
-        return redirect()->route('documentacion.index')->with('info','El documento ha sido creado y guardado');
+                 //AQUI SE GUARDA EL ARCHIVO
+                $aleatorio = str_random(50);
+                $nombre = $aleatorio.'-'.$file->getClientOriginalName();
+                $file->move('uploads', $nombre);
+                $archivo->archivo = '/uploads/'.$nombre;
+                $archivo->save(); 
+
+                DB::commit();
+              
+          } catch (Exception $e) {
+              DB::rollback();
+          }
+        }
+        
+
+        return Redirect::to('documentacion/'.$request->get('id_doc'))->with('info','El documento ha sido creado y guardado');
 
 	}
 
 
-    public function destroy($id_doc, $num_documento)
+    public function destroy($num_archivo, Request $request)
     {
-      $archivo = Documento::find($id_doc, $num_documento);
-      $archivo->delete();
-      return Redirect::to('documentacion');
+        $id_doc = $request->get('id_doc');
+        $archivo = DB::table('archivo')->where('id_doc', '=', $request->get('id_doc'))->where('num_archivo', '=', $num_archivo)->first();
+        $public_path = public_path();
+        File::delete($public_path.$archivo->archivo);
+        DB::table('archivo')->where('id_doc', '=', $request->get('id_doc'))->where('num_archivo', '=', $num_archivo)->delete();
+
+        return Redirect::to('documentacion/'.$id_doc);
     }
+
 }

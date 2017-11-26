@@ -1,6 +1,7 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal_documento-delete-{{$documento->num_documento}}{{$documento->id_doc}}">
-	{{Form::Open(array('action'=>array('DocumentoController@destroy',array($documento->id_doc, $documento->num_documento)),'method'=>'delete'))}}
+role="dialog" tabindex="-1" id="modal_documento-delete-{{$documento->num_documento}}">
+	{{Form::Open(array('action'=>array('DocumentoController@destroy',$documento->num_documento),'method'=>'delete'))}}
+	<input type="hidden" name="id_doc" value="{{$documento->id_doc}}">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">

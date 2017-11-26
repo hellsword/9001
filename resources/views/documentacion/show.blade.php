@@ -67,7 +67,7 @@
             <td>{{$documento->titulo}}</td>
             <td>{{$documento->nombre}} {{$documento->apellido}}</td>
             <td>{{$documento->fecha}}</td>
-            <td> <a href="{{URL::action('DocumentoController@show',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-eye-open"></i></a> <a href=""  class="btn btn-small"><i class="icon-edit"></i></a>  <a href="" data-target="#modal_documento-delete-{{$documento->num_documento}}{{$documento->id_doc}}" data-toggle="modal" onclick="no_css()" class="btn btn-small"><i class="icon-remove-sign"></i></a></td>
+            <td> <a href="{{URL::action('DocumentoController@show',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-eye-open"></i></a> <a href=""  class="btn btn-small"><i class="icon-edit"></i></a>  <a href="" data-target="#modal_documento-delete-{{$documento->num_documento}}" data-toggle="modal" onclick="no_css()" class="btn btn-small"><i class="icon-remove-sign"></i></a> </td>
             </tr>
             @include('documentacion.modal_documento')
             @endforeach
@@ -106,8 +106,9 @@
             <td>{{$archivo->titulo}}</td>
             <td>{{$archivo->nombre}} {{$archivo->apellido}}</td>
             <td>{{$archivo->fecha}}</td>
-            <td> <a href="/getfile/{{$archivo->num_archivo}}" class="btn btn-small"><i class="icon-download icon-spin"></i></a>   <a href=""  class="btn btn-small"><i class="icon-remove-sign"></i></a></td>
+            <td> <a href="/getfile/{{$archivo->num_archivo}}" class="btn btn-small"><i class="icon-download icon-spin"></i></a>  <a href="" data-target="#modal_archivo-delete-{{$archivo->num_archivo}}" data-toggle="modal" onclick="no_css()" class="btn btn-small"><i class="icon-remove-sign"></i></a> </td>
             </tr>
+           @include('documentacion.modal_archivo')
             @endforeach
            </table>
            {{$archivos->render()}}

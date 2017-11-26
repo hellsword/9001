@@ -60,6 +60,8 @@ class DocumentacionController extends Controller
 
           $documentos = DB::table('documento')
         ->join('users', 'users.id', '=', 'documento.autor')
+        ->join('documentacion', 'documentacion.id_doc', '=', 'documento.id_doc')
+        ->where('documento.id_doc', '=', $id)
               ->select('documento.titulo as titulo',
                  'documento.fecha as fecha',
                  'documento.cuerpo as cuerpo',
@@ -72,6 +74,8 @@ class DocumentacionController extends Controller
 
           $archivos = DB::table('archivo')
         ->join('users', 'users.id', '=', 'archivo.autor')
+        ->join('documentacion', 'documentacion.id_doc', '=', 'archivo.id_doc')
+        ->where('archivo.id_doc', '=', $id)
               ->select('archivo.titulo as titulo',
                  'archivo.fecha as fecha',
                  'archivo.archivo as archivo',
@@ -83,6 +87,33 @@ class DocumentacionController extends Controller
 
 			return view('documentacion.show', ['documentacion'=> $documentacion, 'documentos'=> $documentos, 'archivos'=> $archivos]);
 	}
+
+  public function edit($id)
+  {
+
+      $documentacion = Documentacion::findOrFail($id);
+      $nombre_proceso = DB::table('proceso')
+        ->where('id_proceso', '=', $documentacion->id_proceso)
+              ->select('nombre as nombre')->first();
+
+      return view("documentacion.edit", ["documentacion"=>$documentacion, "nombre_proceso"=>$nombre_proceso]);  
+  }
+
+
+
+  public function update(Request $request, $id)
+    {
+
+      $documentacion = Documentacion::findOrFail($id);
+      $documentacion->version_proceso=$request->get('version_proceso');
+      $documentacion->fecha_inicio=$request->get('fecha_inicio');
+      $documentacion->fecha_fin=$request->get('fecha_fin');
+      $documentacion->num_cambios=$request->get('num_cambios');
+      $documentacion->num_participantes=$request->get('num_participantes');
+      $documentacion->update();  
+
+      return Redirect::to('/documentacion');
+    }
 
   
 }

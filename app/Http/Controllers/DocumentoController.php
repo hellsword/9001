@@ -66,7 +66,7 @@ class DocumentoController extends Controller
 
       //return Redirect::to('/servicios');  
 
-		return redirect()->route('documentacion.index')->with('info','El documento ha sido creado y guardado');
+		return Redirect::to('documentacion/'.$request->get('id_doc'))->with('info','El documento ha sido creado y guardado');
 
 	}
 
@@ -88,9 +88,12 @@ class DocumentoController extends Controller
 	}
 
 
-	public function destroy($id_doc, $num_documento)
+	public function destroy($num_documento, Request $request)
     {
-      return $id_doc;
+
+      DB::table('documento')->where('id_doc', '=', $request->get('id_doc'))->where('num_documento', '=', $num_documento)->delete();
+
+      return Redirect::to('documentacion/'.$request->get('id_doc'));
     }
 
 

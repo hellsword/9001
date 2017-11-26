@@ -27,7 +27,7 @@
         <td>{{$documentacion->fecha_fin}}</td>
         <td>{{$documentacion->num_cambios}}</td>
         <td>{{$documentacion->num_participantes}}</td>
-        <td> <a href="{{URL::action('DocumentacionController@show',$documentacion->id_doc)}}"><i class="icon-eye-open"></i></a> <a href=""><i class="icon-edit"></i></a> </td>
+        <td> <a href="{{URL::action('DocumentacionController@show',$documentacion->id_doc)}}"><i class="icon-eye-open"></i></a> <a href="{{URL::action('DocumentacionController@edit',$documentacion->id_doc)}}"><i class="icon-edit"></i></a> </td>
         </tr>
        @endforeach
        </table>

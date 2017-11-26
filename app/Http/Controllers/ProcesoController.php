@@ -73,17 +73,16 @@ class ProcesoController extends Controller
         $proceso->save(); 
 
 
-        //Se agrega la informacion de documentacio
-        /*
+       
         $documentacion = new Documentacion;
-        $documentacion->vesion_proceso= '1.0.0';
+        $documentacion->version_proceso= '1.0.0';
         $documentacion->fecha_inicio= date("d/m/Y");
         $documentacion->fecha_fin= '';
         $documentacion->num_cambios= 0;
         $documentacion->num_participantes= 1;
         $documentacion->id_proceso= $proceso->id_proceso;
         $documentacion->save(); 
-        */
+        
 
         DB::commit();
           
