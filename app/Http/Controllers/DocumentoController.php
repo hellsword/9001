@@ -97,4 +97,33 @@ class DocumentoController extends Controller
     }
 
 
+    public function edit($id)
+    {
+
+      $documento = DB::table('documento')
+				->join('users', 'users.id', '=', 'documento.autor')
+				->where('documento.num_documento', '=', $id)
+	            ->select('documento.titulo as titulo',
+	        			 'documento.fecha as fecha',
+	        			 'documento.cuerpo as cuerpo',
+	        			 'users.nombre as nombre',
+	        			 'users.apellido as apellido',
+	        			 'documento.id_doc as id_doc',
+	        			 'documento.num_documento as num_documento')
+	      		->first();
+
+      return view('documento.edit', ['documento'=> $documento]);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+
+        Documento::where('id_doc', '=', $id)->where('num_documento', '=', $request->get('num_documento'))
+              ->update(['titulo' => $request->get('titulo'), 'cuerpo' => $request->get('cuerpo'), 'fecha' => $request->get('fecha')]);
+
+        return Redirect::to('documentacion/'.$id);
+    }
+
+
 }
