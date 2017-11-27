@@ -32,7 +32,7 @@
                            <!-- <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/image.png" alt="" /><span>Media</span></a></li>
                             <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/reports.png" alt="" /><span>Indicadores</span></a></li>
                             <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/edit.png" alt="" /><span>New Article</span></a></li> -->
-                            <li class="one_fifth last"><a href=""><img src="katniss/img/gemicon/mail.png" alt="" /><span>Contactos</span></a></li>
+                            <li class="one_fifth last"><a href="/lista_contactos"><img src="katniss/img/gemicon/mail.png" alt="" /><span>Contactos</span></a></li>
                            <!-- <li class="one_fifth"><a href=""><img src="katniss/img/gemicon/calendar.png" alt="" /><span>Events</span></a></li> -->
                             <li class="one_fifth"><a href="/lista"><img src="katniss/img/gemicon/users.png" alt="" /><span>RRHH</span></a></li>
                             <li class="one_fifth"><a href="/procesos"><img src="katniss/img/gemicon/settings.png" alt="" /><span>Procesos</span></a></li>

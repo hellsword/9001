@@ -49,6 +49,8 @@ Route::get('/search/autocomplete_proceso','RiesgoController@autocomplete_proceso
 Route::get('/nuevo_objetivo', 'ObjetivoController@create');
 Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_objetivo');
 
+Route::get('/listado', 'ListaContactoController@listado'); // para ver listado
+
 Route::resource('usuarios','UsuarioController');
 Route::resource('documentacion','DocumentacionController');
 Route::resource('documento','DocumentoController');
@@ -59,7 +61,7 @@ Route::resource('areas_procesos','AreasProcesoController');
 Route::resource('objetivo','ObjetivoController');
 Route::resource('riesgos','RiesgoController');
 Route::resource('calendario','CalendarioController');
-
+Route::resource('lista_contactos','ListaContactoController'); // 
 
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/lista','UsuarioController@index');
