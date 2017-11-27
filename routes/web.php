@@ -61,7 +61,8 @@ Route::resource('areas_procesos','AreasProcesoController');
 Route::resource('objetivo','ObjetivoController');
 Route::resource('riesgos','RiesgoController');
 Route::resource('calendario','CalendarioController');
-Route::resource('lista_contactos','ListaContactoController'); // 
+Route::resource('lista_contactos','ListaContactoController'); //
+Route::resource('contactos','ContactoController');
 
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/lista','UsuarioController@index');

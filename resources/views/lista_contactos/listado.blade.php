@@ -5,6 +5,9 @@
 	<div class="contentinner">
 		<table class="table table-striped table-bordered table-condensed table-hover">
 			<tr>
+				<center>Mi lista de contactos</center>
+            </tr>
+			<tr>
 				<td>Nombre</td>
 			    <td>Apellido</td>
 			    <td>Email</td>
@@ -14,6 +17,7 @@
 				<td>{{$item->nombre}}</td>
                 <td>{{$item->apellido}}</td>
                 <td>{{$item->email}}</td>
+                <td><a href="{{URL::action('ContactoController@show',$item->id)}}"><i class="icon-eye-open"></i></a><a href=""><i class="icon-remove"></i></a></td>
 			</tr>
 			@endforeach
 		</table>
