@@ -9,8 +9,7 @@
 <div class="maincontent">
 	<div class="contentinner">
 		<table class="table table-striped table-bordered table-condensed table-hover">
-			     <tr">
-            <td>Id</td>
+			     <tr>            
             <td>Acción a realizar</td>
             <td>Recursos</td>
             <td>Tipo de indicador</td>
@@ -20,7 +19,6 @@
 
             @foreach($objetivo as $item)
            <tr>
-           <td>{{$item->id_objetivo}}</td>
            <td>{{$item->to_make}}</td>
            <td>{{$item->resources}}</td>
            <td>{{$item->tipo_indicador}}</td>

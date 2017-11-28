@@ -1,12 +1,13 @@
 @extends('layouts.tema')
 @section('contenido')
 
+<div class="pagetitle">
+    <h1>Lista de contactos</h1>
+</div>
+
 <div class="maincontent">
 	<div class="contentinner">
 		<table class="table table-striped table-bordered table-condensed table-hover">
-			<tr>
-				<center>Mi lista de contactos</center>
-            </tr>
 			<tr>
 				<td>Nombre</td>
 			    <td>Apellido</td>

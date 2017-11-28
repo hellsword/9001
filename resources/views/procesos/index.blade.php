@@ -14,7 +14,6 @@
         <tr>
         </tr>
         <tr style="background-color: black; color: white;">
-        <td>Id</td>
         <td>Nombre</td>
         <td>ID del Responsable</td>
         <td>Implementación</td>
@@ -24,7 +23,6 @@
        </tr>
       @foreach($procesos as $proceso)
         <tr>
-        <td>{{$proceso->id_proceso}}</td>
         <td>{{$proceso->nombre}}</td>
         <td>{{$proceso->id_responsable}}</td>
         <td>{{$proceso->implementacion}}</td>

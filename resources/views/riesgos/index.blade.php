@@ -13,16 +13,12 @@
         <tr>
         </tr>
         <tr style="background-color: black; color: white;">
-        <td>Id riesgo</td>
-        <td>Id Proceso</td>
         <td>Nombre proceso</td>
         <td>Titulo riesgo</td>
         <td>Descripción</td>
        </tr>
       @foreach($riesgos as $riesgo)
         <tr>
-        <td>{{$riesgo->id_riesgo}}</td>
-        <td>{{$riesgo->id_proceso}}</td>
         <td>{{$riesgo->nombre}}</td>
         <td>{{$riesgo->titulo}}</td>
         <td>{{$riesgo->descripcion}}</td>

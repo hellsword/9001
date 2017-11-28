@@ -13,7 +13,6 @@
         <tr>
         </tr>
         <tr style="background-color: black; color: white;">
-        <td>Id</td>
         <td>Rut</td>
         <td>Nombre</td>
         <td>Apellido</td>
@@ -21,7 +20,6 @@
        </tr>
       @foreach($user as $item)
         <tr>
-        <td>{{$item->id}}</td>
         <td>{{$item->rut}}</td>
         <td>{{$item->nombre}}</td>
         <td>{{$item->apellido}}</td>
