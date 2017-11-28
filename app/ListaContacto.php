@@ -10,9 +10,9 @@ class ListaContacto extends Model
 	
     protected $table='lista_contactos'; // asignamos la tabla a la cual hara referencia.
 
-    protected $primaryKey='id_contacto'; //asignamos la PK de nuestra tabla.
+    protected $primaryKey='id_contacto,id_usuario'; //asignamos la PK de nuestra tabla.
 
     protected $fillable = [
-        'id_usuario',
+        //
     ];
 }

@@ -17,8 +17,9 @@
 				<td>{{$item->nombre}}</td>
                 <td>{{$item->apellido}}</td>
                 <td>{{$item->email}}</td>
-                <td><a href="{{URL::action('ContactoController@show',$item->id)}}"><i class="icon-eye-open"></i></a><a href=""><i class="icon-remove"></i></a></td>
+                <td><a href="{{URL::action('ContactoController@show',$item->id)}}"><i class="icon-eye-open"></i></a><a href="" data-target="#modal-delete-{{$item->id}}" data-toggle="modal" onclick="no_css()"><i class="icon-remove"></i></a></td>
 			</tr>
+			@include('lista_contactos.modal')
 			@endforeach
 		</table>
 		{{$usuarios->render()}}

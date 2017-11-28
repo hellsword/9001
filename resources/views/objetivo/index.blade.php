@@ -27,10 +27,18 @@
            <td>{{$item->id_proceso}}</td>
            <td> <a href="{{URL::action('ObjetivoController@edit',$item->id_objetivo)}}"><i class="icon-edit"></i></a><a href="" data-target="#modal-delete-{{$item->id_objetivo}}" data-toggle="modal" onclick="no_css()"><i class="icon-remove"></i></a> </td>
            </tr>
+           @include('objetivo.modal')
            @endforeach
 		</table>
 		{{$objetivo->render()}}
 	</div>
 </div>
 
+<script type="text/javascript">
+
+  function no_css() {
+    document.styleSheets[0].disabled = !document.styleSheets[0].disabled;
+  }
+
+</script>
 @endsection

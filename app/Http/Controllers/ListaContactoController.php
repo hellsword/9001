@@ -93,4 +93,12 @@ class ListaContactoController extends Controller
       return view('lista_contactos.listado',["usuarios"=>$usuarios]);
     }
 
+    public function destroy($id)
+    {
+      $id_activo=$this->auth->user()->id;
+      $lis = DB::table('lista_contactos')->where('id_contacto','=',$id_activo)
+      ->where('id_usuario','=',$id)->delete();
+      return Redirect::to('lista_contactos');
+    }
+
 }
