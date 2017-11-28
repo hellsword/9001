@@ -32,7 +32,7 @@ class UsuarioController extends Controller
                       'rut as rut',
                       'nombre as nombre',
                       'apellido as apellido')
-      ->paginate(2);
+      ->paginate(10);
 
       return view('usuarios.index')->with('user',$user);
     }
