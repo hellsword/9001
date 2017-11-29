@@ -54,38 +54,29 @@
                 <li class="nav-header">Main Navigation</li>
                 <li class="dropdown"><a href=""><span class="icon-briefcase"></span> Objetivos</a>
                     <ul>
-                        <li><a href="elements.html">Lista de objetivos</a></li>
-                        <li><a href="bootstrap.html">Crear objetivo</a></li>
+                        <li><a href="/objetivo">Lista de objetivos</a></li>
+                        <li><a href="/objetivo/create">Crear objetivo</a></li>
                     </ul>
                 </li>
-                <li><a href="media.html"><span class="icon-picture"></span> Mis contactos</a></li>
-                <li><a href="media.html"><span class="icon-picture"></span> Recursos humanos</a></li>
-                <li class="dropdown"><a href=""><span class="icon-briefcase"></span> Documentación</a>
+                <li class="dropdown"><a href=""><span class="icon-briefcase"></span> Mis contactos</a>
                     <ul>
-                        <li><a href="elements.html">Ver documentación</a></li>
-                        <li><a href="bootstrap.html">Generar nueva documentación</a></li>
+                        <li><a href="/listado">Ver lista</a></li>
+                        <li><a href="/lista_contactos">Agregar contacto</a></li>
                     </ul>
                 </li>
+                <li><a href="/lista"><span class="icon-picture"></span> Recursos humanos</a></li>
+                <li><a href="/documentacion"><span class="icon-picture"></span> Documentación</a></li>
                 <li class="dropdown"><a href=""><span class="icon-th-list"></span> Procesos</a>
                     <ul>
-                        <li><a href="table-static.html">Ver listado de procesos</a></li>
-                        <li><a href="table-dynamic.html">Proceso nuevo</a></li>
+                        <li><a href="/procesos">Ver listado de procesos</a></li>
+                        <li><a href="/nuevo_proceso">Proceso nuevo</a></li>
                     </ul>
                 </li>
-                <li><a href="typography.html"><span class="icon-font"></span> Áreas de proceso</a></li>
+                <li><a href="/areas_procesos"><span class="icon-font"></span> Áreas de proceso</a></li>
                 <li class="dropdown"><a href=""><span class="icon-pencil"></span> Gestión de riesgos</a>
                     <ul>
-                        <li><a href="forms.html">Ver riesgos</a></li>
-                        <li><a href="wizards.html">Agregar nuevo riesgo</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown"><a href=""><span class="icon-book"></span> Otras informaciones</a>
-                    <ul>
-                        <li><a href="404.html">404 Error Page</a></li>
-                        <li><a href="invoice.html">Invoice Page</a></li>
-                        <li><a href="editprofile.html">Edit Profile</a></li>
-                        <li><a href="grid.html">Grid Styles</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="/riesgos">Ver riesgos</a></li>
+                        <li><a href="/riesgos/create">Agregar nuevo riesgo</a></li>
                     </ul>
                 </li>
             </ul>
