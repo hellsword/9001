@@ -48,7 +48,8 @@ Route::get('/search/autocomplete_proceso','RiesgoController@autocomplete_proceso
 //RUTAS AUTOCOMPLETADO EN NUEVO OBJETIVO
 Route::get('/nuevo_objetivo', 'ObjetivoController@create');
 Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_objetivo');
-
+// RUTA DE DOCUMENTOS
+Route::resource('documents','DocumentController');
 Route::get('/listado', 'ListaContactoController@listado'); // para ver listado
 
 Route::resource('usuarios','UsuarioController');
