@@ -9,7 +9,9 @@
 <div class="maincontent">
 	<div class="contentinner">
 		<table class="table table-striped table-bordered table-condensed table-hover">
-			     <tr>            
+			     <tr>
+        </tr>
+           <tr style="background-color: black; color: white;">            
             <td>Acción a realizar</td>
             <td>Recursos</td>
             <td>Tipo de indicador</td>

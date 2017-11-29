@@ -12,7 +12,7 @@
 </style>
 
 <div class="pagetitle">
-    <h1>Nuevo Proceso</h1>
+    <h1>Edición de Proceso</h1>
 </div><!--pagetitle-->
 
 <div class="maincontent">
@@ -20,38 +20,40 @@
         <h4 class="widgettitle nomargin">Información básica</h4>
         <div class="widgetcontent bordered">
             <div class="row-fluid" >
-                {!!Form::open(array('url'=>'procesos', 'method'=>'POST', 'class'=>'stdform stdform2', 'autocomplete'=>'off'))!!}
+                {!!Form::model($proceso, ['method'=>'PATCH', 'route'=>['procesos.update', $proceso->id_proceso],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
 
                     <!-- FORMULARIO PARA AUTOCOMPLETADO -->
                     {{ Form::open(['url'=>'#','id'=>'search-form','method' => 'get']) }}
                     
                     <p>
                         <label>Nombre del proceso</label>
-                        <span class="field"><input type="text" name="nombre" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="nombre" class="input-xxlarge" value="{{$proceso->nombre}}" required="" /></span>
                     </p>
 
                     <p>
                         <label>ID del responsable</label>
-                        <span class="field"><input type="text" id="id_responsable" name="id_responsable" class="input-xxlarge"  /></span>
+                        <span class="field"><input type="text" id="id_responsable" name="id_responsable" class="input-xxlarge" value="{{$proceso->id_responsable}}" required="" /></span>
                     </p>
 
                     <p>
-                        <div id="lista_metas"></div>
+                        <label>metas</label>
+                        <span class="field"><textarea id="metas" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" >{{$proceso->metas}}</textarea></span>
                     </p>
 
                     <p>
                         <label>Implementación</label>
-                        <span class="field"><input type="text" name="implementacion"  class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="implementacion"  class="input-xxlarge" value="{{$proceso->implementacion}}" required="" /></span>
                     </p>
                     <p>
                         <label>Tiempo medición (días)</label>
-                        <span class="field"><input type="text" name="tiempo_medicion" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="tiempo_medicion" class="input-xxlarge" required="" value="{{$proceso->tiempo_medicion}}" /></span>
                     </p>
 
                      <p>
                         <label>Área de proceso</label>
                         <span class="field">
                         <select name="cod_area" id="cod_area" class="uniformselect" required="">
+                        <option selected="true" disabled="disabled">{{$proceso->cod_area}}</option>
                         @foreach($areas as $area)
                         <option value="{{$area -> cod_area}}">{{$area -> cod_area}} - {{$area -> nombre}}</option>
                         @endforeach
@@ -124,12 +126,6 @@
         });
 */
 
-
-
-        var str = '<label>metas</label>'+
-                        '<span class="field"><textarea id="metas" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" placeholder="*meta1\n*meta2\n*meta3\n*......"></textarea></span>';
-
-        document.getElementById('lista_metas').innerHTML = str;
 
 
 

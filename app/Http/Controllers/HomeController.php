@@ -36,7 +36,7 @@ class HomeController extends Controller
          ->join ('users', 'proceso.id_responsable', '=' ,'users.id')   
          ->join ('documentacion', 'proceso.id_proceso', '=' ,'documentacion.id_proceso')   
          ->select('users.id', 'proceso.nombre as nombre_proceso', 'users.nombre as nombre_user', 'users.apellido as apellido_user','proceso.id_proceso as id_proceso', 'documentacion.fecha_inicio as fecha_inicio')
-         ->take(2)
+         ->take(5)
          ->orderBy('proceso.id_proceso', 'desc')
          ->get();
 

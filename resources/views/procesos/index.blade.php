@@ -15,20 +15,22 @@
         </tr>
         <tr style="background-color: black; color: white;">
         <td>Nombre</td>
-        <td>ID del Responsable</td>
+        <td>Responsable</td>
         <td>Implementación</td>
         <td>Metas</td>
         <td>Area</td>
         <td>Tiempo de medición</td>
+        <td></td>
        </tr>
       @foreach($procesos as $proceso)
         <tr>
         <td>{{$proceso->nombre}}</td>
-        <td>{{$proceso->id_responsable}}</td>
+        <td>{{$proceso->nombre_responsable}} {{$proceso->apellido_responsable}}</td>
         <td>{{$proceso->implementacion}}</td>
         <td>{{$proceso->metas}}</td>
         <td>{{$proceso->cod_area}}</td>
         <td>{{$proceso->tiempo_medicion}} días</td>
+        <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a> </td>
         </tr>
        @endforeach
        </table>
