@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Document extends Model
+class Medicion extends Model
 {
      protected $fillable = [
-        'version', 'titulo', 'cuerpo', 'fecha', 'autor',
+        'fecha_medicion', 'detalles', 'anotacion_mejora',
     ];
 }

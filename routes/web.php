@@ -49,7 +49,7 @@ Route::get('/search/autocomplete_proceso','RiesgoController@autocomplete_proceso
 Route::get('/nuevo_objetivo', 'ObjetivoController@create');
 Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_objetivo');
 // RUTA DE DOCUMENTOS
-Route::resource('documents','DocumentController');
+Route::resource('medicion','MedicionController');
 Route::get('/listado', 'ListaContactoController@listado'); // para ver listado
 
 Route::resource('usuarios','UsuarioController');

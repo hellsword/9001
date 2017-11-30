@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DocumentRequest extends FormRequest
+class MedicionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class DocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            'version' => 'required',
-            'titulo' => 'required',
-            'cuerpo' => 'required',
-            'fecha' => 'required',
-            'autor' => 'required'
+            'fecha_medicion' => 'required',
+            'detalles' => 'required',
+            'anotacion_mejora' => 'required'
         ];
     }
 }
