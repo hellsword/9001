@@ -16,7 +16,7 @@
 <div class="container">
 	<div class="row">
 			<div class="col-xs-12">
-				<h1 class="page-header">CRUD DOCUMENTACION</h1>
+				<h1 class="page-header">Gestión de Documentación</h1>
 			</div>
 	
 		@yield('content')
