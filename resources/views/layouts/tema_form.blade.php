@@ -87,6 +87,11 @@
                         <li><a href="/riesgos/create">Agregar nuevo riesgo</a></li>
                     </ul>
                 </li>
+                <li class="dropdown"><a href=""><span class="icon-pencil"></span>Medición</a>
+                    <ul>
+                        <li><a href="/medicion">Medición De Procesos</a></li>
+                    </ul>
+                </li>
                 
             </ul>
         </div>
