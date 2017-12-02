@@ -10,7 +10,7 @@ use App\Medicion;
 class MedicionController extends Controller
 {
 	public function index(){
-			$medicion = medicion::orderBy('id','DESC')->paginate();
+			$medicion = Medicion::orderBy('id','DESC')->paginate();
 			return view('medicion.index',compact('medicion'));
 		}
 

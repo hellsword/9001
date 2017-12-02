@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('layouts.tema')
 
-@section('content')
+@section('contenido')
 
 <div class="col-sm-8">
 <h2>
@@ -8,7 +8,7 @@
 	<td> <a href="{{ route('medicion.index') }}" class="btn btn-default pull-right">Listado</a> </td>
 
 
-</h2>
+</h2><br>
 		@include('medicion.fragment.error')
 
 	{!! Form::open(['route' => 'medicion.store']) !!}
