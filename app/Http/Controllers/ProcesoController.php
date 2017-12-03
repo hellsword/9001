@@ -92,6 +92,7 @@ class ProcesoController extends Controller
           DB::rollback();
       }
 
+      alert()->success('Proceso creado con exito')->persistent('Cerrar');
       return Redirect::to('procesos');  
 
     }
@@ -176,6 +177,7 @@ class ProcesoController extends Controller
           DB::rollback();
       }
 
+      alert()->success('Proceso actualizado con exito')->persistent('Cerrar');
       return Redirect::to('procesos');  
     }
 

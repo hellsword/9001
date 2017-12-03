@@ -63,6 +63,7 @@ class FormacionController extends Controller
           DB::rollback();
       }
 
+      alert()->success('Información de formación ingresada exitosamente')->persistent('Cerrar');
       return Redirect::to('formacion');  
 
     }
