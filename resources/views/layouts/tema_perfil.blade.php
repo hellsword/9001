@@ -19,6 +19,10 @@
 <script type="text/javascript" src="{!! asset('katniss/js/jquery.cookie.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('katniss/js/custom.js') !!}"></script>
 
+
+<!-- SweetAlert2 --> 
+<script type="text/javascript" src="{!! asset('js/sweetalert2/sweetalert2.all.js') !!}"></script>
+
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -111,5 +115,7 @@
 <script type="text/javascript">
 
 </script>
+
+@include('sweet::alert')
 </body>
 </html>

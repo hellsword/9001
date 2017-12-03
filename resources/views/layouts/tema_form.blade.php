@@ -30,6 +30,10 @@
 <script type="text/javascript" src="{!! asset('katniss/js/forms.js') !!}"></script>
 
 
+<!-- SweetAlert2 --> 
+<script type="text/javascript" src="{!! asset('js/sweetalert2/sweetalert2.all.js') !!}"></script>
+
+
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -164,5 +168,7 @@
         jQuery('select, input:checkbox').uniform();
     });
 </script>
+
+@include('sweet::alert')
 </body>
 </html>

@@ -47,7 +47,8 @@ class ArchivoController extends Controller
         $file = Input::file('archivo');
 
         if ($file->getSize()/1024/1024 > 10) {
-            return 'No puede subir archivos que pesen más de 10Mb';
+            alert()->error('No puede subir archivos que pesen más de 10Mb')->persistent('Cerrar');
+            return Redirect::to('documentacion/'.$request->get('id_doc'));
         }
         else{
 
@@ -81,8 +82,8 @@ class ArchivoController extends Controller
           }
         }
         
-
-        return Redirect::to('documentacion/'.$request->get('id_doc'))->with('info','El documento ha sido creado y guardado');
+        alert()->success('El archivo ha sido almacenado')->persistent('Cerrar');
+        return Redirect::to('documentacion/'.$request->get('id_doc'));
 
 	}
 
@@ -95,6 +96,7 @@ class ArchivoController extends Controller
         File::delete($public_path.$archivo->archivo);
         DB::table('archivo')->where('id_doc', '=', $request->get('id_doc'))->where('num_archivo', '=', $num_archivo)->delete();
 
+        alert()->warning('Archivo eliminado')->persistent('Cerrar');
         return Redirect::to('documentacion/'.$id_doc);
     }
 

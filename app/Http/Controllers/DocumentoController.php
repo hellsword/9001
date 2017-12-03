@@ -66,7 +66,8 @@ class DocumentoController extends Controller
 
       //return Redirect::to('/servicios');  
 
-		return Redirect::to('documentacion/'.$request->get('id_doc'))->with('info','El documento ha sido creado y guardado');
+      	alert()->success('El documento ha sido creado y almacenado')->persistent('Cerrar');
+		return Redirect::to('documentacion/'.$request->get('id_doc'));
 
 	}
 
@@ -93,6 +94,7 @@ class DocumentoController extends Controller
 
       DB::table('documento')->where('id_doc', '=', $request->get('id_doc'))->where('num_documento', '=', $num_documento)->delete();
 
+      alert()->warning('Documento eliminado')->persistent('Cerrar');
       return Redirect::to('documentacion/'.$request->get('id_doc'));
     }
 
@@ -122,6 +124,7 @@ class DocumentoController extends Controller
         Documento::where('id_doc', '=', $id)->where('num_documento', '=', $request->get('num_documento'))
               ->update(['titulo' => $request->get('titulo'), 'cuerpo' => $request->get('cuerpo'), 'fecha' => $request->get('fecha')]);
 
+        alert()->success('Documento actualizado')->persistent('Cerrar');
         return Redirect::to('documentacion/'.$id);
     }
 

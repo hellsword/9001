@@ -112,6 +112,7 @@ class DocumentacionController extends Controller
       $documentacion->num_participantes=$request->get('num_participantes');
       $documentacion->update();  
 
+      alert()->success('Documentación actualizada')->persistent('Cerrar');
       return Redirect::to('/documentacion');
     }
 
