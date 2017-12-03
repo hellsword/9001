@@ -39,6 +39,7 @@ class MedicionController extends Controller
 	public function store(Request $request){
 		
 		 $medicion = new Medicion;
+		 $medicion->id_proceso = $request->id_proceso;
 		 $medicion->fecha_medicion = $request->fecha_medicion;
 		 $medicion->detalles = $request->detalles;
 		 $medicion->anotacion_mejora = $request->anotacion_mejora;
@@ -51,6 +52,7 @@ class MedicionController extends Controller
 
 		public function update(Request $request, $id){
 		 $medicion = Medicion::find($id);
+		 $medicion->id_proceso = $request->id_proceso;
 		 $medicion->fecha_medicion = $request->fecha_medicion;
 		 $medicion->detalles = $request->detalles;
 		 $medicion->anotacion_mejora = $request->anotacion_mejora;

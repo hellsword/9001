@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Medicion extends Model
 {
      protected $fillable = [
-        'fecha_medicion', 'detalles', 'anotacion_mejora',
+        'id_proceso', 'fecha_medicion', 'detalles', 'anotacion_mejora',
     ];
 }

@@ -11,6 +11,7 @@
 		<thead>
 			<tr>
 				<th width="20px">ID</th>
+				<th>ID Proceso</th>
 				<th>Fecha medicion</th>
 				<th>Detalles</th>
 <!-- 				<th>Cuerpo</th> -->
@@ -22,6 +23,7 @@
 			@foreach($medicion as $medi)
 				<tr>
 					<td>{{ $medi->id }}</td>
+					<td>{{ $medi->id_proceso }}</td>
 					<td>{{ $medi->fecha_medicion }}</td>
 					<td>{{ $medi->detalles }}</td>
 			

@@ -6,8 +6,13 @@
 <h2>
 	<td> <a href="{{ route('medicion.edit', $medicion->id) }}" class="btn btn-default pull-right">editar</a> </td>
 
-	{{ $medicion->fecha_medicion }}
+		{{ $medicion->id_proceso }}
 </h2>
+
+	<p>
+		
+		{{ $medicion->fecha_medicion }}
+	</p>
 	<p>
 		{{ $medicion->detalles }}
 	</p>
