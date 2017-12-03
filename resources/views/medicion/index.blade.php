@@ -14,7 +14,7 @@
 				<th>ID Proceso</th>
 				<th>Fecha medicion</th>
 				<th>Detalles</th>
-<!-- 				<th>Cuerpo</th> -->
+<!-- 			asd	<th>Cuerpo</th> -->
 				<th>Anotacion Mejora</th>
 				<th colspan="3">&nbsp;</th>
 			</tr>

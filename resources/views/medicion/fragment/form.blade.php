@@ -24,3 +24,5 @@
 	{!! Form::submit('ENVIAR', ['class' => 'btn btn-primary']) !!}
 
 </div>
+
+<!-- #comentario -->
