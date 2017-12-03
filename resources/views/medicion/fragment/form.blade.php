@@ -1,5 +1,5 @@
 <div class="form-group">
-	{!! Form::label('id_proceso','ID Proceso') !!}
+	{!! Form::label('id_proceso','ID Proceso ') !!}
 	{!! Form::text('id_proceso', null, ['class' =>'form-control']) !!}
 
 </div>
