@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Guard;
 use App\User;
 use App\Personal;
 use App\Contacto;
+use App\Formacion;
 
 use DB;
 
@@ -83,6 +84,16 @@ class UsuarioController extends Controller
           $personal->horarios = $request->get('horarios'); 
           $personal->save(); 
         }
+
+        $formacion = new Formacion;
+        $formacion->id_usuario = $usuario->id;
+        $formacion->aniosexperiencia = '';
+        $formacion->Ntrabajos = 0;
+        $formacion->grado = '';
+        $formacion->Cursosodiplomados = '';
+        $formacion->recomendaciones = '';
+        $formacion->curriculum = '';
+        $formacion->save();
 
         DB::commit();
           

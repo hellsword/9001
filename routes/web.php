@@ -53,6 +53,9 @@ Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_obje
 Route::resource('medicion','MedicionController');
 Route::get('/listado', 'ListaContactoController@listado'); // para ver listado
 
+//para formacion
+route::get('/mi_formacion','FormacionController@mi_formacion');
+
 Route::resource('usuarios','UsuarioController');
 Route::resource('documentacion','DocumentacionController');
 Route::resource('documento','DocumentoController');

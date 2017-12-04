@@ -80,5 +80,20 @@ class FormacionController extends Controller
     	return view('formacion.edit', ["formacion"=>Formacion::findOrFail($this->auth->user()->id)]);  
     }
 
+    public function mi_formacion(){
+      $id_activo=$this->auth->user()->id;
+      $formacion = DB::table('formacion')
+                  ->where('id_usuario','=',$id_activo)
+                  ->select('id_usuario as id usuario',
+                           'aniosexperiencia as aniosexperiencia',
+                           'Ntrabajos as Ntrabajos',
+                           'grado as grado',
+                           'Cursosodiplomados as Cursosodiplomados',
+                           'recomendaciones as recomendaciones',
+                           'curriculum as curriculum');
+      return view('formacion.mi_formacion',["formacion"=>$formacion]);
+
+    }
+
 
 }
