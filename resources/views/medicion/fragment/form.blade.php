@@ -1,11 +1,11 @@
 <div class="form-group">
 	{!! Form::label('id_proceso','ID Proceso ') !!}
-	<input type="text" class="form-control" name="id_proceso" id="id_proceso">
+	{!! Form::text('id_proceso', null, ['class' =>'form-control']) !!}
 
 </div>
 <div class="form-group">
 	{!! Form::label('fecha_medicion','fecha medicion') !!}
-	{!! Form::text('fecha_medicion', null, ['class' =>'form-control']) !!}
+	{!! Form::text('fecha_medicion', date("Y-m-d H:i:s"), ['class' =>'form-control']) !!}
 
 </div>
 
@@ -32,12 +32,11 @@
 
 <script type="text/javascript">
 	
-
-	//AUTOCOMPLETADO PARA ID_RESPONSABLE    
+	//AUTOCOMPLETADO PARA ID_PROCESO
         $(function()
         {
                  $( "#id_proceso" ).autocomplete({
-                  source: "search/autocomplete_medicion",
+                  source: "search/autocomplete_proceso",
                   minLength: 1,
                   select: function(event, ui) {
                           $('#id_proceso').val(ui.item.value);
@@ -55,5 +54,5 @@
               };
         });
 
+
 </script>
-<!-- #comentario -->

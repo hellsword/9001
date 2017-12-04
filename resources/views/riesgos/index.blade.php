@@ -5,7 +5,7 @@
     <h1>Riesgos detectados</h1>
 </div><!--pagetitle-->
 
-<a href="{{url('/riesgos/create')}}"><button class="btn btn-success">Ingresar riesgo</button></a>
+<a href="/nuevo_riesgo"><button class="btn btn-success">Ingresar riesgo</button></a>
 
 <div class="maincontent">
     <div class="contentinner">

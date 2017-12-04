@@ -4,8 +4,8 @@
 
 <div class="col-sm-8">
 	<h2>Listado de Mediciones
-		<a href="{{ route('medicion.create') }}" class="btn btn-primary pull-right">NUEVO</a>
-	</h2>
+		<a href="/nueva_medicion" class="btn btn-primary pull-right">NUEVO</a>
+	</h2><br>
 	@include('medicion.fragment.info')
 	<table class="table table-hover table-striped">
 		<thead>
@@ -28,13 +28,13 @@
 					<td>{{ $medi->detalles }}</td>
 			
 					<td>{{ $medi->anotacion_mejora }}</td>
-					<td> <a href="{{ route('medicion.show', $medi->id) }}">ver</a> </td>
-					<td> <a href="{{ route('medicion.edit', $medi->id) }}">editar</a> </td>
+					<td> <a href="{{ route('medicion.show', $medi->id) }}"><i class="icon-eye-open"></i></a> </td>
+					<td> <a href="{{ route('medicion.edit', $medi->id) }}"><i class="icon-edit"></i></a> </td>
 					<td>
-						<form action="{{ route('medicion.destroy', $medi->id) }}" method="POST">
+						<form action="{{ route('medicion.destroy', $medi->id) }}" method="POST" id="formu">
 						{{ csrf_field() }}
 						<input type="hidden" name="_method" value="DELETE">
-						<button class="btn bnt-link">borrar</button>
+						<a onclick="document.getElementById('formu').submit()"><i class="icon-remove"></i></a>
 						</form>
 					</td>
 				</tr>

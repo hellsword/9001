@@ -53,7 +53,8 @@ class MedicionController extends Controller
 	}
 
 		public function update(Request $request, $id){
-		 $medicion = Medicion::find($id);
+		 $medicion = DB::table('medicions')->where('id', $id)->first();
+
 		 $medicion->id_proceso = $request->id_proceso;
 		 $medicion->fecha_medicion = $request->fecha_medicion;
 		 $medicion->detalles = $request->detalles;
@@ -64,4 +65,6 @@ class MedicionController extends Controller
 		alert()->success('Medición actualizada')->persistent('Cerrar');
 		return redirect()->route('medicion.index')->with('info','La medicion ha sido actualizada');
 	}
+
+
 }

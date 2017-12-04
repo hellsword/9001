@@ -1,9 +1,15 @@
 INSERT INTO `area_procesos` (`cod_area`, `nombre`) VALUES
-('CM', 'Gestión de configuración'),
-('MA', 'Medición y análisis'),
-('PP', 'Planificación del proyecto'),
-('RD', 'Desarrollo de requerimientos'),
-('RSKM', 'Gestión de riesgos'),
-('TS', 'Solución técnica'),
-('VAL', 'Validación'),
-('VER', 'Verificación ');
+('CAR', 'Análisis causal y resolución'),
+('DAR', 'Análisis de desiciones y resolución'),
+('IPM + IPPD', 'Gestión integrada del proyecto'),
+('OID', 'Innovacion y despliegue en la organización'),
+('OPD + IPPD', 'Definición de procesos de la organización'),
+('OPF', 'Enfoque en Procesos de la Organización'),
+('OPP', 'Rendimiento del proceso de la organización'),
+('OT', 'Formación organizativa'),
+('PI', 'Integración de producto'),
+('PMC', 'Monitorización y control del proyecto'),
+('PPQA', 'Asegramiento de la calidad de proceso y de pr'),
+('QPM', 'Gestión cuantitativa de proyeto'),
+('REQM', 'Gestión de requerimientos'),
+('SAM', 'Gestión de acuerdos con proveedores');

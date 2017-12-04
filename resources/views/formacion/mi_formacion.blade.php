@@ -4,12 +4,11 @@
         <h1>Mi formacion</h1>
     </div>
     <div class="maincontent">
-        <div class="contentinner">
         	
         	<p>
-        		<label>Años De Experiencia:</label>
-        		<label>{{$formacion->id_usuario}}</label>
+        		<input type="text" name="" value="Años De Experiencia: " style="background-color:transparent; border: 0;"><input type="text" name="" value="{{$formacion->id_usuario}}" style="background-color:transparent; border: 0;">
         	</p>
+        	
         	<p>
         		<label>Numero de Trabajos:</label>
         	</p>
@@ -26,7 +25,7 @@
         		<label>Curriculum:</label>
         	</p>
         	
-        </div>
+       
     </div>
 
 

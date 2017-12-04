@@ -6,8 +6,10 @@
 
 <style type="text/css">
     li{
-        background-color: white;
+        background-color: black;
+        color: white;
         list-style-type:none;
+        padding: 1px;
     }
 </style>
 

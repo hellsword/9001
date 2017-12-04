@@ -2,6 +2,19 @@
 
 @section('contenido')
 
+
+<!-- PARA QUE FUNCIONE EL AUTOCOMPLETADO -->
+<script type="text/javascript" src="{!! asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}"></script>
+
+<style type="text/css">
+    li{
+        background-color: black;
+        color: white;
+        list-style-type:none;
+        padding: 1px;
+    }
+</style>
+
 <div class="col-sm-8">
 <h2>
 	Nueva Medición

@@ -1,6 +1,6 @@
-@extends('layout')
+@extends('layouts.tema')
 
-@section('content')
+@section('contenido')
 
 <div class="col-sm-8">
 <h2>
@@ -10,7 +10,7 @@
 
 </h2>
 	
-
+<br><br>
 	
 	@include('medicion.fragment.error')
 
