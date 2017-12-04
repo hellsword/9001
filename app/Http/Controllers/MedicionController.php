@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use DB;
 
 
 use App\Medicion;
@@ -53,8 +54,7 @@ class MedicionController extends Controller
 	}
 
 		public function update(Request $request, $id){
-		 $medicion = DB::table('medicions')->where('id', $id)->first();
-
+		 $medicion = Medicion::find($id);
 		 $medicion->id_proceso = $request->id_proceso;
 		 $medicion->fecha_medicion = $request->fecha_medicion;
 		 $medicion->detalles = $request->detalles;
