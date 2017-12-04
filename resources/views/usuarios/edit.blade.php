@@ -35,7 +35,7 @@
 
                 <p class="stdformbutton">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="reset" class="btn">Cancelar</button>
+                    <a href="/usuarios" class="btn btn-danger">Volver</a>  
                 </p>
         		{!!Form::close()!!}
             </div>

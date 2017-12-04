@@ -33,7 +33,7 @@ class UsuarioController extends Controller
                       'rut as rut',
                       'nombre as nombre',
                       'apellido as apellido')
-      ->paginate(10);
+      ->paginate(15);
 
       return view('usuarios.index')->with('user',$user);
     }
@@ -156,6 +156,22 @@ class UsuarioController extends Controller
             ->paginate(2);
 
       return view('usuarios.ver_perfil', ["usuario"=>User::findOrFail($this->auth->user()->id)])->with('contacto', $contacto)->with(["personal"=>Personal::findOrFail($this->auth->user()->id)]);
+    }
+
+
+    public function ver_ficha(Request $request)
+    {
+
+      $contacto = DB::table('contacto')
+            ->select('id as id',
+                      'medio as medio',
+                      'contacto as contacto')
+            ->where('id','=', $request->get('id_usuario'))
+            ->paginate(2);
+
+      $formacion = Formacion::find($request->get('id_usuario'));
+
+      return view('usuarios.ver_ficha', ["usuario"=>User::findOrFail($request->get('id_usuario'))])->with('contacto', $contacto)->with(["personal"=>Personal::findOrFail($request->get('id_usuario'))])->with('formacion', $formacion);
     }
 
 }

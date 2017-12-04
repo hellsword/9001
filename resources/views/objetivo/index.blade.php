@@ -16,7 +16,7 @@
             <td>Recursos</td>
             <td>Tipo de indicador</td>
             <td>ID del proceso</td>
-            <td></td>
+            <td  colspan="2">&nbsp;</td>
             </tr>
 
             @foreach($objetivo as $item)
@@ -25,8 +25,8 @@
            <td>{{$item->resources}}</td>
            <td>{{$item->tipo_indicador}}</td>
            <td>{{$item->id_proceso}}</td>
-           <td> <a href="{{URL::action('ObjetivoController@edit',$item->id_objetivo)}}"><i class="icon-edit"></i></a>
-
+           <td> <a href="{{URL::action('ObjetivoController@edit',$item->id_objetivo)}}"><i class="icon-edit"></i></a>  </td>
+           <td>
             {{Form::Open(array('action'=>array('ObjetivoController@destroy', $item->id_objetivo), 'method'=>'delete', 'id'=>$item->id_objetivo.'-destroy' ))}}
             <input type="hidden" name="_method" value="DELETE">
             <a onclick="eliminar({{$item->id_objetivo}})" ><i class="icon-remove"></i></a>
@@ -41,12 +41,6 @@
 </div>
 
 <script type="text/javascript">
-
-  function no_css() {
-    document.styleSheets[0].disabled = !document.styleSheets[0].disabled;
-  }
-
-
 
   function eliminar(id_objetivo){
 

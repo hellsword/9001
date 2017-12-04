@@ -26,7 +26,7 @@
 
                     <p class="stdformbutton">
                         <button type="submit" class="btn btn-primary">Aceptar</button>
-                        <button type="reset" class="btn">Reiniciar</button>
+                        <a href="/objetivos" class="btn btn-danger">Volver</a>  
                     </p>
         		{!!Form::close()!!}
             </div>      

@@ -20,7 +20,7 @@
         <td>Metas</td>
         <td>Area</td>
         <td>Tiempo de medición</td>
-        <td></td>
+        <td colspan="3">&nbsp;</td>
        </tr>
       @foreach($procesos as $proceso)
         <tr>
@@ -30,7 +30,9 @@
         <td>{{$proceso->metas}}</td>
         <td>{{$proceso->cod_area}}</td>
         <td>{{$proceso->tiempo_medicion}} días</td>
-        <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a> 
+        <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a>  </td>
+        <td> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a>   </td>
+        <td>
           {{Form::Open(array('action'=>array('ProcesoController@destroy', $proceso->id_proceso), 'method'=>'delete', 'id'=>$proceso->id_proceso.'-destroy' ))}}
             <input type="hidden" name="_method" value="DELETE">
             <a onclick="eliminar({{$proceso->id_proceso}})" ><i class="icon-remove"></i></a>
