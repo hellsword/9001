@@ -45,7 +45,6 @@
                         <label>Tipo de usuario</label>
                         <span class="field"><select name="tipo" id="tipo" class="uniformselect" onchange="cambia_tipo()">
                             <option value="admin">Administrador</option>
-                            <option value="secretaria">Secretaria</option>
                             <option value="personal">Personal</option>
                         </select></span>
                     </p>
