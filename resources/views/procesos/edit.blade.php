@@ -63,7 +63,7 @@
                     
                     <br />
                     <p align="right">
-                        <button type="submit" class="btn btn-primary">Aceptar</button> &nbsp;  <a href="/home" class="btn btn-danger">Cancelar</a> 
+                        <button type="submit" class="btn btn-primary">Aceptar</button> &nbsp;  <a href="/procesos" class="btn btn-danger">Cancelar</a> 
                     </p>
                     {{ Form::close() }}
                 {!!Form::close()!!}

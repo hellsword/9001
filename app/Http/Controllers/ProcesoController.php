@@ -41,7 +41,7 @@ class ProcesoController extends Controller
                       'proceso.implementacion as implementacion',
                       'proceso.tiempo_medicion as tiempo_medicion',
                       'proceso.cod_area as cod_area')
-      ->paginate(5);
+      ->paginate(15);
 
       return view('procesos.index')->with('procesos',$procesos);
     }
@@ -179,6 +179,17 @@ class ProcesoController extends Controller
 
       alert()->success('Proceso actualizado con exito')->persistent('Cerrar');
       return Redirect::to('procesos');  
+    }
+
+
+
+    public function destroy($id)
+    {
+      $proceso = Proceso::find($id);
+      $proceso->delete();
+
+      alert()->success('Proceso eliminado')->persistent('Cerrar');
+      return Redirect::to('/procesos');
     }
 
 

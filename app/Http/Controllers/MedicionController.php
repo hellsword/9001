@@ -11,7 +11,14 @@ use App\Medicion;
 class MedicionController extends Controller
 {
 	public function index(){
-			$medicion = Medicion::orderBy('id','DESC')->paginate();
+
+			$medicion= DB::table('medicions')
+            ->join('proceso', 'proceso.id_proceso', '=', 'medicions.id_proceso')
+            ->select('proceso.nombre as nombre',
+            		  'medicions.id as id',
+                      'medicions.fecha_medicion as fecha_medicion')
+      		->paginate(5);
+
 			return view('medicion.index',compact('medicion'));
 		}
 

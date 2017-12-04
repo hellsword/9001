@@ -21,7 +21,7 @@ class RiesgoController extends Controller
       $riesgos = DB::table('riesgos as r')
          ->join ('proceso as p', 'r.id_proceso', '=' ,'p.id_proceso')   
          ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion')
-         ->paginate(5);
+         ->paginate(15);
 
       return view('riesgos.index')->with('riesgos',$riesgos);
     }
@@ -55,8 +55,68 @@ class RiesgoController extends Controller
       }
 
       alert()->success('Riesgo almacenado')->persistent('Cerrar');
-      return Redirect::to('/home');  
+      return Redirect::to('/riesgos');  
 
+    }
+
+
+    public function edit($id) 
+    {
+          $riesgos = DB::table('riesgos as r')
+         ->join ('proceso as p', 'r.id_proceso', '=' ,'p.id_proceso')  
+         ->where('r.id_riesgo', '=', $id) 
+         ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion')
+         ->first();
+
+      return view('riesgos.edit')->with('riesgos',$riesgos);
+    }
+
+
+
+    public function update(Request $request, $id)
+    {
+
+      try {
+
+        DB::beginTransaction();
+      
+        $riesgo = Riesgo::findOrFail($id);
+        $riesgo->titulo=$request->get('titulo');
+        $riesgo->descripcion=$request->get('descripcion');
+        $riesgo->update();  
+
+        DB::commit();
+          
+      } catch (Exception $e) {
+          DB::rollback();
+      }
+
+      alert()->success('Riesgo actualizado con exito')->persistent('Cerrar');
+      return Redirect::to('/riesgos');  
+    }
+
+
+
+    public function destroy($id)
+    {
+      $riesgo = Riesgo::find($id);
+      $riesgo->delete();
+
+      alert()->success('Riesgo eliminado')->persistent('Cerrar');
+      return Redirect::to('/riesgos');
+    }
+
+
+
+    public function show($id) 
+    {
+          $riesgos = DB::table('riesgos as r')
+         ->join ('proceso as p', 'r.id_proceso', '=' ,'p.id_proceso')  
+         ->where('r.id_riesgo', '=', $id) 
+         ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion')
+         ->first();
+
+      return view('riesgos.show')->with('riesgos',$riesgos);
     }
 
 
@@ -76,6 +136,9 @@ class RiesgoController extends Controller
 		return Response::json($results);
 	
 	}
+
+
+
 
 
 }

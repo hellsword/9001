@@ -14,34 +14,35 @@
 </style>
 
 <div class="pagetitle">
-    <h1>Nuevo Riesgo</h1>
+    <h1>Editor de Riesgo</h1>
 </div><!--pagetitle-->
 
 <div class="maincontent">
     <div class="contentinner content-editprofile">
         <div class="widgetcontent bordered">
             <div class="row-fluid" >
-                {!!Form::open(array('url'=>'riesgos', 'method'=>'POST', 'class'=>'stdform stdform2', 'autocomplete'=>'off'))!!}
+                {!!Form::model($riesgos, ['method'=>'PATCH', 'route'=>['riesgos.update', $riesgos->id_riesgo],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
 
                     <!-- FORMULARIO PARA AUTOCOMPLETADO -->
                     {{ Form::open(['url'=>'#','id'=>'search-form','method' => 'get']) }}
                     
                     <p>
                         <label>Proceso</label>
-                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
+                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" value="{{$riesgos->nombre}}"  readonly="" /></span>
                     </p>
 
                     <p>
                         <label>Título del riesgo</label>
-                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" placeholder="Defina un título que describa este riesgo" /></span>
+                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" value="{{$riesgos->titulo}}" /></span>
                     </p>
 
                     <p>
-                        <div id="lista_metas"></div>
+                        <label>Descripción</label>
+                        <span class="field"><textarea id="descripcion" name="descripcion" cols="80" rows="10" class="span7" style="resize: vertical" >{{$riesgos->descripcion}}</textarea></span>
                     </p>
                     
                     <br />
-                    <p align="right">
+                    <p align="right"><br>
                         <button type="submit" class="btn btn-primary">Aceptar</button> &nbsp;  <a href="/riesgos" class="btn btn-danger">Cancelar</a> 
                     </p>
                     {{ Form::close() }}
@@ -79,13 +80,6 @@
                 
               };
         });
-
-
-
-         var str = '<label>Descripción</label>'+
-                        '<span class="field"><textarea id="descripcion" name="descripcion" cols="80" rows="10" class="span5" style="resize: vertical" placeholder="Esta es\nla descipcion\ndel riesgo de un proceso"></textarea></span>';
-
-        document.getElementById('lista_metas').innerHTML = str;
 
 </script>
 

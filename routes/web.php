@@ -43,6 +43,7 @@ Route::get('/search/autocomplete_responsable','ProcesoController@autocomplete_re
 
 //RUTAS AUTOCOMPLETADO EN NUEVO RIESGO
 Route::get('/nuevo_riesgo', 'RiesgoController@create');
+Route::get('/editar_riesgo', 'RiesgoController@edit');
 Route::get('/search/autocomplete_proceso','RiesgoController@autocomplete_proceso');
 
 //RUTAS AUTOCOMPLETADO EN NUEVO OBJETIVO

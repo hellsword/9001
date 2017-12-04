@@ -30,7 +30,12 @@
         <td>{{$proceso->metas}}</td>
         <td>{{$proceso->cod_area}}</td>
         <td>{{$proceso->tiempo_medicion}} días</td>
-        <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a> </td>
+        <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a> 
+          {{Form::Open(array('action'=>array('ProcesoController@destroy', $proceso->id_proceso), 'method'=>'delete', 'id'=>$proceso->id_proceso.'-destroy' ))}}
+            <input type="hidden" name="_method" value="DELETE">
+            <a onclick="eliminar({{$proceso->id_proceso}})" ><i class="icon-remove"></i></a>
+          {{ Form::close() }}
+        </td>
         </tr>
        @endforeach
        </table>
@@ -44,6 +49,27 @@
 
   function no_css() {
     document.styleSheets[0].disabled = !document.styleSheets[0].disabled;
+  }
+
+
+
+  function eliminar(id_proceso){
+
+
+    swal({
+      title: '¿Seguro que desea eliminar este proceso?',
+      text: "Una vez eliminado, no se podrá recuperar",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Sí, elimínalo!'
+    }).then((result) => {
+      if (result.value) {
+        document.getElementById(id_proceso+'-destroy').submit();
+      }
+    })
+
   }
 
 </script>

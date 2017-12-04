@@ -106,6 +106,10 @@
         </div>
     </div>
 
+    <p align="right">
+        <a href="/procesos" class="btn btn-danger">Volver</a> 
+    </p>
+
 
 
    </div>

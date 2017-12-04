@@ -10,24 +10,16 @@
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
-				<th width="20px">ID</th>
-				<th>ID Proceso</th>
+				<th>Proceso</th>
 				<th>Fecha medicion</th>
-				<th>Detalles</th>
-<!-- 			asd	<th>Cuerpo</th> -->
-				<th>Anotacion Mejora</th>
 				<th colspan="3">&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($medicion as $medi)
 				<tr>
-					<td>{{ $medi->id }}</td>
-					<td>{{ $medi->id_proceso }}</td>
+					<td>{{ $medi->nombre }}</td>
 					<td>{{ $medi->fecha_medicion }}</td>
-					<td>{{ $medi->detalles }}</td>
-			
-					<td>{{ $medi->anotacion_mejora }}</td>
 					<td> <a href="{{ route('medicion.show', $medi->id) }}"><i class="icon-eye-open"></i></a> </td>
 					<td> <a href="{{ route('medicion.edit', $medi->id) }}"><i class="icon-edit"></i></a> </td>
 					<td>
