@@ -54,6 +54,7 @@ class RiesgoController extends Controller
           DB::rollback();
       }
 
+      alert()->success('Riesgo almacenado')->persistent('Cerrar');
       return Redirect::to('/home');  
 
     }

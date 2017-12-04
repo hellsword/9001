@@ -90,6 +90,7 @@ class UsuarioController extends Controller
           DB::rollback();
       }
 
+      alert()->success('Recuerde llenar los datos de formación en la opción Formacion dentro del menú de usuario','Usuario creado exitosamente')->persistent('Cerrar');
       return Redirect::to('usuarios');  
 
     }
@@ -119,6 +120,7 @@ class UsuarioController extends Controller
       $usuario->fecha_nac=$request->get('fecha_nac');
       $usuario->update();  
 
+      alert()->success('Usuario actualizado')->persistent('Cerrar');
       return Redirect::to('home');
     }
 
@@ -126,6 +128,8 @@ class UsuarioController extends Controller
     {
       $usuario = User::find($id);
       $usuario->delete();
+
+      alert()->success('Usuario eliminado')->persistent('Cerrar');
       return Redirect::to('usuarios');
     }
 

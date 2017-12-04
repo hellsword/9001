@@ -24,6 +24,7 @@ class MedicionController extends Controller
 			$medicion = Medicion::find($id);
 			$medicion->delete();
 
+			alert()->warning('Medición eliminada')->persistent('Cerrar');
 			return back()->with('info', 'La medicion fue eliminada');
 	}
 
@@ -46,6 +47,7 @@ class MedicionController extends Controller
 
 		$medicion->save(); 
 
+		alert()->success('Medición creada y almacenada')->persistent('Cerrar');
 		return redirect()->route('medicion.index')->with('info','La medicion ha sido creada y guardada');
 
 	}
@@ -59,6 +61,7 @@ class MedicionController extends Controller
 
 		$medicion->save(); 
 
+		alert()->success('Medición actualizada')->persistent('Cerrar');
 		return redirect()->route('medicion.index')->with('info','La medicion ha sido actualizada');
 	}
 }
