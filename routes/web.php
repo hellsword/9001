@@ -50,6 +50,11 @@ Route::get('/nuevo_objetivo', 'ObjetivoController@create');
 Route::get('/search/autocomplete_objetivo','ObjetivoController@autocomplete_objetivo');
 
 
+//RUTAS AUTOCOMPLETADO EN NUEVO MEDICION
+Route::get('/nueva_medicion', 'MedicionController@create');
+Route::get('/search/autocomplete_medicion','MedicionController@autocomplete_medicion');
+
+
 Route::resource('medicion','MedicionController');
 Route::get('/listado', 'ListaContactoController@listado'); // para ver listado
 

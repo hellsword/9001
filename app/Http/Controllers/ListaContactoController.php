@@ -98,6 +98,8 @@ class ListaContactoController extends Controller
       $id_activo=$this->auth->user()->id;
       $lis = DB::table('lista_contactos')->where('id_contacto','=',$id_activo)
       ->where('id_usuario','=',$id)->delete();
+
+      alert()->warning('El contacto ha sido eliminado')->persistent('Cerrar');
       return Redirect::to('lista_contactos');
     }
 

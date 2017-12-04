@@ -44,6 +44,7 @@ class ObjetivoController extends Controller
       $objetivo->tipo_indicador=$request->get('tipo_indicador');
       $objetivo->update();  
 
+      alert()->success('Objetivo actualizado')->persistent('Cerrar');
       return Redirect::to('objetivo');
     }
 
@@ -60,6 +61,7 @@ class ObjetivoController extends Controller
          $objetivo->id_proceso=$request->get('id_proceso');
          $objetivo->save();
 
+         alert()->success('El Objetivo ha sido creado')->persistent('Cerrar');
          return Redirect::to('objetivo');  
     }
 
@@ -68,6 +70,8 @@ class ObjetivoController extends Controller
     {
       $objetivo = Objetivo::find($id);
       $objetivo->delete();
+
+      alert()->success('Objetivo eliminado')->persistent('Cerrar');
       return Redirect::to('objetivo');
     }
 

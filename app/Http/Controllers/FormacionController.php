@@ -96,4 +96,20 @@ class FormacionController extends Controller
     }
 
 
+  public function autocomplete_medicion()
+  {
+    $queries = Proceso::where(function($query)
+    {
+        $term = Input::get('term');
+        $query->where('id_proceso', 'like', '%'.$term.'%')->orWhere('nombre', 'like', '%'.$term.'%');
+    })->where('tipo', '=', 'personal')->take(6)->get();
+    foreach ($queries as $query)
+    {
+        $results[] = [ 'id' => $query->id_proceso."  ".$query->nombre, 'value' => $query->id_proceso];
+    }
+    return Response::json($results);
+  
+  }
+
+
 }
