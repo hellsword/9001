@@ -87,6 +87,20 @@ class FormacionController extends Controller
 
     }
 
+    public function update(Request $request, $id)
+    {
+
+      $formacion = Formacion::findOrFail($id);
+      $formacion->aniosexperiencia=$request->get('aniosexperiencia');
+      $formacion->Ntrabajos=$request->get('Ntrabajos');
+      $formacion->grado=$request->get('grado');
+      $formacion->Cursosodiplomados=$request->get('Cursosodiplomados');
+      $formacion->recomendaciones=$request->get('recomendaciones');
+      $formacion->curriculum=$request->get('curriculum');
+      $formacion->update();  
+      return Redirect::to('home');
+    }
+
 
   public function autocomplete_medicion()
   {
