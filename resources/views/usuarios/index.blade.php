@@ -23,7 +23,8 @@
         <td>{{$item->rut}}</td>
         <td>{{$item->nombre}}</td>
         <td>{{$item->apellido}}</td>
-        <td> <a href="{{URL::action('ContactoController@show',$item->id)}}"><i class="icon-eye-open"></i></a> <a href="{{URL::action('UsuarioController@edit',$item->id)}}"><i class="icon-edit"></i></a> <a href="" data-target="#modal-delete-{{$item->id}}" data-toggle="modal" onclick="no_css()"><i class="icon-remove"></i></a> </td>
+        <td> <a href="{{URL::action('ContactoController@show',$item->id)}}"><i class="icon-eye-open"></i></a> <a href="{{URL::action('UsuarioController@edit',$item->id)}}"><i class="icon-edit"></i></a> <a href="{{URL::action('FormacionController@show',$item->id)}}"><i class="icon-book"></i></a>
+          <a href="" data-target="#modal-delete-{{$item->id}}" data-toggle="modal" onclick="no_css()"><i class="icon-remove"></i></a> </td>
         </tr>
        @include('usuarios.modal')
        @endforeach
