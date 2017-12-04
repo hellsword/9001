@@ -33,15 +33,14 @@ class ListaContactoController extends Controller
         $query=trim($request->get('searchText'));
 
         $listas= DB::table('lista_contactos')->where('id_contacto','=',$id_activo)->select('id_usuario as id_usuario')->get();
-
+        
         $arreglo = [];
 
         foreach ($listas as $lista) { 
-          array_push($arreglo, $lista->id_usuario);
+            array_push($arreglo, $lista->id_usuario);
         }
 
         $user= DB::table('users as u')
-            ->join('lista_contactos as a', 'a.id_usuario', '<>' ,'u.id')
             ->where('u.rut','LIKE','%'.$query.'%')
             ->where('u.id','<>',$id_activo)
             ->whereNotIn('u.id', $arreglo)
