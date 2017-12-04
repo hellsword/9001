@@ -42,6 +42,7 @@ class ListaContactoController extends Controller
 
         $user= DB::table('users as u')
             ->join('lista_contactos as a', 'a.id_usuario', '<>' ,'u.id')
+            ->where('u.rut','LIKE','%'.$query.'%')
             ->where('u.id','<>',$id_activo)
             ->whereNotIn('u.id', $arreglo)
             ->select('u.id as id',
