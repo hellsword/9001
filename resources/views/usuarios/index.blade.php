@@ -30,7 +30,7 @@
           {{ Form::close() }}
         </td>
         <td> <a href="{{URL::action('UsuarioController@edit',$item->id)}}"><i class="icon-edit"></i></a> </td> 
-        <!-- <td> <a href="{{URL::action('FormacionController@show',$item->id)}}"><i class="icon-book"></i></a> </td>   -->
+        <td> <a href="{{URL::action('FormacionController@edit',$item->id)}}"><i class="icon-book"></i></a> </td>   
         <td> 
           {{Form::Open(array('action'=>array('UsuarioController@destroy', $item->id), 'method'=>'delete', 'id'=>$item->id.'-destroy' ))}}
             <input type="hidden" name="_method" value="DELETE">

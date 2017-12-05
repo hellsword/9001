@@ -1,4 +1,4 @@
-@extends ('layouts.tema_perfil')
+@extends ('layouts.tema')
 @section ('contenido')
 
 <div class="pagetitle">
@@ -39,7 +39,7 @@
 
                 <p class="stdformbutton">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="reset" class="btn">Cancelar</button>
+                    <a href="/usuarios" class="btn btn-danger">Volver</a>  
                 </p>
         		{!!Form::close()!!}
             </div>
