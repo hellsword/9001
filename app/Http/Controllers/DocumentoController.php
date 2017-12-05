@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Contracts\Auth\Guard;
 
 use DB;
+use PDF;
 
 //Modelos
 use App\Documento;
@@ -82,6 +83,7 @@ class DocumentoController extends Controller
 	        			 'documento.cuerpo as cuerpo',
 	        			 'users.nombre as nombre',
 	        			 'users.apellido as apellido',
+	        			 'documento.num_documento as num_documento',
 	        			 'documento.id_doc as id_doc')
 	      		->first();
 
@@ -126,6 +128,28 @@ class DocumentoController extends Controller
 
         alert()->success('Documento actualizado')->persistent('Cerrar');
         return Redirect::to('documentacion/'.$id);
+    }
+
+
+
+    public function downloadPDF(Request $request)
+    {
+
+    	$documento = DB::table('documento')
+				->join('users', 'users.id', '=', 'documento.autor')
+				->where('documento.num_documento', '=', $request->get('num_documento'))
+	            ->select('documento.titulo as titulo',
+	        			 'documento.fecha as fecha',
+	        			 'documento.cuerpo as cuerpo',
+	        			 'users.nombre as nombre',
+	        			 'users.apellido as apellido',
+	        			 'documento.num_documento as num_documento',
+	        			 'documento.id_doc as id_doc')
+	      		->first();
+
+    	$pdf = PDF::loadView('documento.pdf', ['documento'=> $documento]);
+		return $pdf->download($documento->titulo.'.pdf');
+		
     }
 
 
