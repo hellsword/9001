@@ -4,6 +4,9 @@
 <!-- PARA QUE FUNCIONE EL AUTOCOMPLETADO -->
 <script type="text/javascript" src="{!! asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}"></script>
 
+<!-- EDITOR DE TEXTO -->
+<script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
+
 <style type="text/css">
     li{
         background-color: white;
@@ -35,8 +38,16 @@
                     </p>
 
                     <p>
-                        <label>Cuerpo del documento:</label>
-                        <span class="field"><textarea id="cuerpo" name="cuerpo" cols="100" rows="15" class="span5" style="resize: vertical"></textarea></span> 
+                                <label>Cuerpo del documento:</label>
+                                <span class="field">
+                                <div class="panel-body">
+                                    
+                                        <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" name="cuerpo">
+                                            Este es el textarea que es modificado por la clase ckeditor
+                                        </textarea>
+                                   
+                                </div>
+                                </span> 
                     </p>
 
                     <p class="stdformbutton">

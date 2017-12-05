@@ -17,7 +17,7 @@
 	<br>
 
 	<p>
-		{{$documento->cuerpo}}
+		{!!$documento->cuerpo!!}
 	</p>
 
 </body>

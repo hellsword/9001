@@ -27,8 +27,8 @@
                     </p>
 
                     <p>
-                        <label>Cuerpo del documento:</label>
-                        <span class="field"><textarea id="cuerpo" name="cuerpo" cols="100" rows="15" class="span5" style="resize: vertical" readonly="">{{$documento->cuerpo}}</textarea></span> 
+                        
+                        <span class="field"><div class="span8" style="width: 80%;">{!!$documento->cuerpo!!}</div></span> 
                     </p>
 
                     <p class="stdformbutton">

@@ -59,7 +59,7 @@
             <td>Título</td>
             <td>Autor</td>
             <td>Fecha creación</td>
-            <td>Acciones</td>
+            <td colspan="4">&nbsp;</td>
            </tr>
 
            @foreach($documentos as $documento)
@@ -67,7 +67,16 @@
             <td>{{$documento->titulo}}</td>
             <td>{{$documento->nombre}} {{$documento->apellido}}</td>
             <td>{{$documento->fecha}}</td>
-            <td> <a href="{{URL::action('DocumentoController@show',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-eye-open"></i></a> <a href="{{URL::action('DocumentoController@edit',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-edit"></i></a>  <a href="" data-target="#modal_documento-delete-{{$documento->num_documento}}" data-toggle="modal" onclick="no_css()" class="btn btn-small"><i class="icon-remove-sign"></i></a> </td>
+            <td> <a href="{{URL::action('DocumentoController@show',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-eye-open"></i></a> </td>
+
+                <td> {{Form::Open(array('action'=>array('DocumentoController@downloadPDF'), 'method'=>'GET', 'id'=>'doc_form' ))}}
+                    <input type="hidden" name="num_documento" value="{{$documento->num_documento}}">
+                    <button type="submit" class="btn btn-small"><i class="icon-download icon-spin"></i></button>
+                {{ Form::close() }}
+                </td>
+
+                <td> <a href="{{URL::action('DocumentoController@edit',$documento->num_documento)}}"  class="btn btn-small"><i class="icon-edit"></i></a> </td> 
+                <td> <a href="" data-target="#modal_documento-delete-{{$documento->num_documento}}" data-toggle="modal" onclick="no_css()" class="btn btn-small"><i class="icon-remove-sign"></i></a> </td>
             </tr>
             @include('documentacion.modal_documento')
             @endforeach
