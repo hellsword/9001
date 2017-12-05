@@ -16,7 +16,7 @@
         <td>Rut</td>
         <td>Nombre</td>
         <td>Apellido</td>
-        <td colspan="3">&nbsp;</td>
+        <td colspan="4">&nbsp;</td>
        </tr>
       @foreach($user as $item)
         <tr>
