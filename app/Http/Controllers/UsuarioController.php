@@ -76,15 +76,6 @@ class UsuarioController extends Controller
         $contacto->save(); 
         
 
-        //Se agrega informacion extra si es necesario
-        if($tipo == 'personal'){
-          $personal = new Personal;
-          $personal->id_usuario = $usuario->id;
-          $personal->ocupacion = $request->get('ocupacion'); 
-          $personal->horarios = $request->get('horarios'); 
-          $personal->save(); 
-        }
-
         $formacion = new Formacion;
         $formacion->id_usuario = $usuario->id;
         $formacion->aniosexperiencia = '';
@@ -94,6 +85,15 @@ class UsuarioController extends Controller
         $formacion->recomendaciones = '';
         $formacion->curriculum = '';
         $formacion->save();
+
+        //Se agrega informacion extra si es necesario
+        if($tipo == 'personal'){
+          $personal = new Personal;
+          $personal->id_usuario = $usuario->id;
+          $personal->ocupacion = $request->get('ocupacion'); 
+          $personal->horarios = $request->get('horarios'); 
+          $personal->save(); 
+        }
 
         DB::commit();
           

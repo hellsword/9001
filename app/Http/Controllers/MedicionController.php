@@ -17,7 +17,7 @@ class MedicionController extends Controller
             ->select('proceso.nombre as nombre',
             		  'medicions.id as id',
                       'medicions.fecha_medicion as fecha_medicion')
-      		->paginate(5);
+      		->paginate(15);
 
 			return view('medicion.index',compact('medicion'));
 		}

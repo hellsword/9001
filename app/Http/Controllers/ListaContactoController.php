@@ -49,7 +49,7 @@ class ListaContactoController extends Controller
                       'u.nombre as nombre',
                       'u.apellido as apellido')
         ->distinct()
-        ->paginate(10);
+        ->paginate(5);
         return view('lista_contactos.index',["user"=>$user,"searchText"=>$query]);
       }
       
