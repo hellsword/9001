@@ -36,6 +36,7 @@ Route::get('/getfile/{id}', function($id)
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/ver_perfil', 'UsuarioController@ver_perfil');
 Route::get('/usuarios/ver_ficha', 'UsuarioController@ver_ficha');
+Route::get('/documento/downloadPDF', 'DocumentoController@downloadPDF');
 
 //RUTAS AUTOCOMPLETADO EN NUEVO PROCESO
 Route::get('/nuevo_proceso', 'ProcesoController@create');
