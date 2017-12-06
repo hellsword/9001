@@ -12,7 +12,7 @@
             {!!Form::model($documentacion, ['method'=>'PATCH', 'route'=>['documentacion.update', $documentacion->id_doc],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
                 <p>
                     <label>Nombre del proceso:</label>
-                    <span class="field"><input type="text" name="to_make" id="to_make" class="input-xxlarge" value="{{$nombre_proceso->nombre}}" readonly="" /></span>
+                    <span class="field"><input type="text" name="to_make" id="to_make" required="" class="input-xxlarge" value="{{$nombre_proceso->nombre}}" readonly="" /></span>
                 </p>
 
                 <p>

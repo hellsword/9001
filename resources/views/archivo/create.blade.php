@@ -22,13 +22,13 @@
 
                     <p>
                         <label>Autor:</label>
-                        <span class="field"><input type="text" name="autor_nombre" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
-                        <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge" value="{{ Auth::user()->id}}" /></span>
+                        <span class="field"><input type="text" name="autor_nombre" required="" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
+                        <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge" required="" value="{{ Auth::user()->id}}" /></span>
                     </p>
 
                     <p>
                         <label>Fecha:</label>
-                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
+                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
                     </p>
 
                     <p>
@@ -42,7 +42,7 @@
                             </div>
                             <span class="btn btn-file"><span class="fileupload-new">Select file</span>
                             <span class="fileupload-exists">Change</span>
-                            <input type="file" required="" name="archivo" id="archivo" /></span>
+                            <input type="file" required="" name="archivo" required="" id="archivo" /></span>
                             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                             </div>
                             </div>

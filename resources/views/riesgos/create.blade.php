@@ -28,14 +28,14 @@
                     
                     <p>
                         <label>Proceso</label>
-                        <input type="hidden" name="" id="temp" value="">
-                        <input type="hidden" name="id_proceso" id="id_proceso" value="">
-                        <span class="field"><input type="text" id="proceso" name="proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
+                        <input type="hidden" name="" id="temp" value="" required="" >
+                        <input type="hidden" name="id_proceso" id="id_proceso" value="" required="">
+                        <span class="field"><input type="text" id="proceso" required="" name="proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
                     </p>
 
                     <p>
                         <label>Título del riesgo</label>
-                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" placeholder="Defina un título que describa este riesgo" /></span>
+                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" required="" placeholder="Defina un título que describa este riesgo" /></span>
                     </p>
 
                     <p>
@@ -91,7 +91,7 @@
 
 
          var str = '<label>Descripción</label>'+
-                        '<span class="field"><textarea id="descripcion" name="descripcion" cols="80" rows="10" class="span5" style="resize: vertical" placeholder="Esta es\nla descipcion\ndel riesgo de un proceso"></textarea></span>';
+                        '<span class="field"><textarea id="descripcion" required="" name="descripcion" cols="80" rows="10" class="span5" style="resize: vertical" placeholder="Esta es\nla descipcion\ndel riesgo de un proceso"></textarea></span>';
 
         document.getElementById('lista_metas').innerHTML = str;
 

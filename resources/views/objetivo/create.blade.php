@@ -23,23 +23,23 @@
                     {{ Form::open(['url'=>'#','id'=>'search-form','method' => 'get']) }}
                     <p>
                         <label>Acción a realizar:</label>
-                        <span class="field"><input type="text" name="to_make" id="to_make" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="to_make" id="to_make" required="" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
                         <label>Recursos:</label>
-                        <span class="field"><input type="text" name="resources" id="resources" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="resources" id="resources" required="" class="input-xxlarge" /></span>
                     </p>
                     <p>
                         <label>Tipo de indicador:</label>
-                        <span class="field"><input type="text" name="tipo_indicador" id="tipo_indicador" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="tipo_indicador" id="tipo_indicador" required="" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
                         <label>Proceso del que deriva:</label>
                         <input type="hidden" name="" id="temp" value="">
                         <input type="hidden" name="id_proceso" id="id_proceso" value="">
-                        <span class="field"><input type="text" name="proceso" id="proceso" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="proceso" id="proceso" required="" class="input-xxlarge" /></span>
                     </p>
 
                     <p class="stdformbutton">
