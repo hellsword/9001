@@ -15,7 +15,7 @@
             <td>Acción a realizar</td>
             <td>Recursos</td>
             <td>Tipo de indicador</td>
-            <td>ID del proceso</td>
+            <td>Proceso</td>
             <td  colspan="2">&nbsp;</td>
             </tr>
 
@@ -24,13 +24,15 @@
            <td>{{$item->to_make}}</td>
            <td>{{$item->resources}}</td>
            <td>{{$item->tipo_indicador}}</td>
-           <td>{{$item->id_proceso}}</td>
-           <td> <a href="{{URL::action('ObjetivoController@edit',$item->id_objetivo)}}"><i class="icon-edit"></i></a>  </td>
-           <td>
-            {{Form::Open(array('action'=>array('ObjetivoController@destroy', $item->id_objetivo), 'method'=>'delete', 'id'=>$item->id_objetivo.'-destroy' ))}}
-            <input type="hidden" name="_method" value="DELETE">
-            <a onclick="eliminar({{$item->id_objetivo}})" ><i class="icon-remove"></i></a>
-            {{ Form::close() }}
+           <td>{{$item->proceso_nombre}}</td>
+           @if(Auth::user()->tipo=='admin' OR Auth::user()->id == $item->id_usuario)
+             <td> <a href="{{URL::action('ObjetivoController@edit',$item->id_objetivo)}}"><i class="icon-edit"></i></a>  </td>
+             <td>
+              {{Form::Open(array('action'=>array('ObjetivoController@destroy', $item->id_objetivo), 'method'=>'delete', 'id'=>$item->id_objetivo.'-destroy' ))}}
+              <input type="hidden" name="_method" value="DELETE">
+              <a onclick="eliminar({{$item->id_objetivo}})" ><i class="icon-remove"></i></a>
+              {{ Form::close() }}
+           @endif
 
             </td>
            </tr>

@@ -28,7 +28,9 @@
                     
                     <p>
                         <label>Proceso</label>
-                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
+                        <input type="hidden" name="" id="temp" value="">
+                        <input type="hidden" name="id_proceso" id="id_proceso" value="">
+                        <span class="field"><input type="text" id="proceso" name="proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
                     </p>
 
                     <p>
@@ -61,14 +63,15 @@
     //AUTOCOMPLETADO PARA COD_AREA
         $(function()
         {
-                 $( "#id_proceso" ).autocomplete({
+                 $( "#proceso" ).autocomplete({
                   source: "search/autocomplete_proceso",
                   minLength: 1,
                   select: function(event, ui) {
-                          $('#id_proceso').val(ui.item.value);
+                          $('#temp').val(ui.item.value);
+                          define_proceso();
                   }
                 }); 
-                $('#id_proceso').data( "ui-autocomplete" )._renderItem = function( ul, item )
+                $('#proceso').data( "ui-autocomplete" )._renderItem = function( ul, item )
                 {
                     var $li = $("<li style='width:35%;margin-left:10px;margin-bottom:5px'>"),
                         $img = $("<img style='width:8%'>");
@@ -80,6 +83,11 @@
               };
         });
 
+
+        function define_proceso(){
+            var vector = document.getElementById('temp').value.split('|');
+            document.getElementById('id_proceso').value = vector[0];
+        }
 
 
          var str = '<label>Descripción</label>'+

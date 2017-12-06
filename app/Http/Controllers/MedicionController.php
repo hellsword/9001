@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Contracts\Auth\Guard;
 use DB;
 
 
@@ -10,13 +12,25 @@ use App\Medicion;
 #comentario
 class MedicionController extends Controller
 {
+
+	protected $auth;
+   
+    //vamos a declarar un constructor:
+    public function __construct(Guard $auth)
+    {
+        //le diremos que gestione el acceso por usuario 
+        $this->middleware('auth');
+        $this->auth =$auth;
+    }
+
 	public function index(){
 
 			$medicion= DB::table('medicions')
             ->join('proceso', 'proceso.id_proceso', '=', 'medicions.id_proceso')
             ->select('proceso.nombre as nombre',
             		  'medicions.id as id',
-                      'medicions.fecha_medicion as fecha_medicion')
+                      'medicions.fecha_medicion as fecha_medicion',
+                      'medicions.id_usuario as id_usuario')
       		->paginate(15);
 
 			return view('medicion.index',compact('medicion'));
@@ -47,11 +61,17 @@ class MedicionController extends Controller
 
 	public function store(Request $request){
 		
+		if (DB::table('proceso')->where('id_proceso', $request->id_proceso)->count() == 0) {
+	        alert()->error('El proceso seleccionado no existe o no ha seleccionado ningún proceso')->persistent('Cerrar');
+	        return Redirect::to('medicion');  
+	      }
+
 		 $medicion = new Medicion;
 		 $medicion->id_proceso = $request->id_proceso;
 		 $medicion->fecha_medicion = $request->fecha_medicion;
 		 $medicion->detalles = $request->detalles;
 		 $medicion->anotacion_mejora = $request->anotacion_mejora;
+		 $medicion->id_usuario = $this->auth->user()->id;
 
 		$medicion->save(); 
 

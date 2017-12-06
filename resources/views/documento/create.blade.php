@@ -22,7 +22,7 @@
 
                     <input type="hidden" name="id_doc" id="id_doc" class="input-xxlarge"  value="{{$documentacion_id}}" />
                     <p>
-                        <label>Título:</label>
+                        <label>Título (nombre del documento):</label>
                         <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" /></span>
                     </p>
 
@@ -38,12 +38,12 @@
                     </p>
 
                     <p>
-                                <label>Cuerpo del documento:</label>
+                                <label>Redacte su documento:</label>
                                 <span class="field">
                                 <div class="panel-body">
                                     
-                                        <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" name="cuerpo">
-                                            Este es el textarea que es modificado por la clase ckeditor
+                                        <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" name="cuerpo" placeholder="Este es el textarea que es modificado por la clase ckeditor">
+                                            
                                         </textarea>
                                    
                                 </div>

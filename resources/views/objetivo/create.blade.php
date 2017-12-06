@@ -37,7 +37,9 @@
 
                     <p>
                         <label>Proceso del que deriva:</label>
-                        <span class="field"><input type="text" name="id_proceso" id="id_proceso" class="input-xxlarge" /></span>
+                        <input type="hidden" name="" id="temp" value="">
+                        <input type="hidden" name="id_proceso" id="id_proceso" value="">
+                        <span class="field"><input type="text" name="proceso" id="proceso" class="input-xxlarge" /></span>
                     </p>
 
                     <p class="stdformbutton">
@@ -60,24 +62,30 @@
         //AUTOCOMPLETADO PARA ID_RESPONSABLE    
         $(function()
         {
-                 $( "#id_proceso" ).autocomplete({
+                 $( "#proceso" ).autocomplete({
                   source: "search/autocomplete_objetivo",
                   minLength: 1,
                   select: function(event, ui) {
-                          $('#id_proceso').val(ui.item.value);
+                          $('#temp').val(ui.item.value);
+                          define_proceso();
                   }
                 }); 
-                $('#id_proceso').data( "ui-autocomplete" )._renderItem = function( ul, item )
+                $('#proceso').data( "ui-autocomplete" )._renderItem = function( ul, item )
                 {
                     var $li = $("<li style='width:800px;margin-left:10px;margin-bottom:5px'>"),
                         $img = $("<img style='width:8%'>");
                 $li.attr('data-value', item.value);
-                
                 $li.append($img).append(""+item.id);    
                 return $li.appendTo(ul);
                 
               };
         });
+
+
+        function define_proceso(){
+            var vector = document.getElementById('temp').value.split('|');
+            document.getElementById('id_proceso').value = vector[0];
+        }
 
 </script>
 

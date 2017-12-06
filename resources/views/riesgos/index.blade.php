@@ -23,12 +23,15 @@
         <td>{{$riesgo->titulo}}</td>
 
         <td>  <a href="{{ route('riesgos.show', $riesgo->id_riesgo) }}"><i class="icon-eye-open"></i></a> </td> 
-        <td> <a href="{{ route('riesgos.edit', $riesgo->id_riesgo) }}"><i class="icon-edit"></i></a>  </td>
+        @if(Auth::user()->tipo=='admin' OR Auth::user()->id == $riesgo->id_usuario)
+          <td> <a href="{{ route('riesgos.edit', $riesgo->id_riesgo) }}"><i class="icon-edit"></i></a>  </td>
 
-        <td>  {{Form::Open(array('action'=>array('RiesgoController@destroy', $riesgo->id_riesgo), 'method'=>'delete', 'id'=>$riesgo->id_riesgo.'-destroy' ))}}
-            <input type="hidden" name="_method" value="DELETE">
-            <a onclick="eliminar({{$riesgo->id_riesgo}})" ><i class="icon-remove"></i></a>
-            </form> </td>
+          <td>  {{Form::Open(array('action'=>array('RiesgoController@destroy', $riesgo->id_riesgo), 'method'=>'delete', 'id'=>$riesgo->id_riesgo.'-destroy' ))}}
+              <input type="hidden" name="_method" value="DELETE">
+              <a onclick="eliminar({{$riesgo->id_riesgo}})" ><i class="icon-remove"></i></a>
+              </form> 
+          </td>
+        @endif
         </tr>
 
        @endforeach

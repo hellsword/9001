@@ -13,6 +13,6 @@ class Objetivo extends Model
     protected $primaryKey='id_objetivo'; //asignamos la PK de nuestra tabla.
 
     protected $fillable = [
-        'to_make', 'resources','tipo_indicador',
+        'to_make', 'resources','tipo_indicador', 'id_usuario',
     ];
 }

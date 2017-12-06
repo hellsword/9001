@@ -16,11 +16,23 @@ use DB;
 
 class RiesgoController extends Controller
 {
+
+
+    protected $auth;
+   
+    //vamos a declarar un constructor:
+    public function __construct(Guard $auth)
+    {
+        //le diremos que gestione el acceso por usuario 
+        $this->middleware('auth');
+        $this->auth =$auth;
+    }
+
     public function index()
     {
       $riesgos = DB::table('riesgos as r')
          ->join ('proceso as p', 'r.id_proceso', '=' ,'p.id_proceso')   
-         ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion')
+         ->select('r.id_riesgo','p.id_proceso','p.nombre','r.titulo', 'r.descripcion', 'r.id_usuario as id_usuario')
          ->paginate(15);
 
       return view('riesgos.index')->with('riesgos',$riesgos);
@@ -40,12 +52,19 @@ class RiesgoController extends Controller
       try {
 
         DB::beginTransaction();
+
+
+        if (DB::table('riesgos')->where('id_proceso', $request->get('id_proceso'))->count() == 0) {
+          alert()->error('El proceso seleccionado no existe o no ha seleccionado ningún proceso')->persistent('Cerrar');
+          return Redirect::to('riesgos');  
+        }
       
         //Se agrega la informacion del riesgo
         $riesgo = new Riesgo;
         $riesgo->id_proceso=$request->get('id_proceso');
         $riesgo->titulo=$request->get('titulo');
         $riesgo->descripcion=$request->get('descripcion');
+        $riesgo->id_usuario= $this->auth->user()->id;
         $riesgo->save(); 
 
         DB::commit();
@@ -131,7 +150,7 @@ class RiesgoController extends Controller
 		})->take(6)->get();
 		foreach ($queries as $query)
 		{
-		    $results[] = [ 'id' => $query->id_proceso."  ".$query->nombre, 'value' => $query->id_proceso];
+		    $results[] = [ 'id' => $query->id_proceso."  ".$query->nombre, 'value' => $query->id_proceso."| ".$query->nombre];
 		}
 		return Response::json($results);
 	

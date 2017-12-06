@@ -40,7 +40,8 @@ class ProcesoController extends Controller
                       'proceso.metas as metas',
                       'proceso.implementacion as implementacion',
                       'proceso.tiempo_medicion as tiempo_medicion',
-                      'proceso.cod_area as cod_area')
+                      'proceso.cod_area as cod_area',
+                      'proceso.id_responsable as id_responsable')
       ->paginate(15);
 
       return view('procesos.index')->with('procesos',$procesos);

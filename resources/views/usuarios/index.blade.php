@@ -29,14 +29,16 @@
             <a onclick="ver_ficha({{$item->id}})" ><i class="icon-eye-open"></i></a>
           {{ Form::close() }}
         </td>
-        <td> <a href="{{URL::action('UsuarioController@edit',$item->id)}}"><i class="icon-edit"></i></a> </td> 
-        <td> <a href="{{URL::action('FormacionController@edit',$item->id)}}"><i class="icon-book"></i></a> </td>   
-        <td> 
-          {{Form::Open(array('action'=>array('UsuarioController@destroy', $item->id), 'method'=>'delete', 'id'=>$item->id.'-destroy' ))}}
-            <input type="hidden" name="_method" value="DELETE">
-            <a onclick="eliminar({{$item->id}})" ><i class="icon-remove"></i></a>
-          {{ Form::close() }}
-        </td>
+        @if(Auth::user()->tipo=='admin')
+          <td> <a href="{{URL::action('UsuarioController@edit',$item->id)}}"><i class="icon-edit"></i></a> </td> 
+          <td> <a href="{{URL::action('FormacionController@edit',$item->id)}}"><i class="icon-book"></i></a> </td>   
+          <td> 
+            {{Form::Open(array('action'=>array('UsuarioController@destroy', $item->id), 'method'=>'delete', 'id'=>$item->id.'-destroy' ))}}
+              <input type="hidden" name="_method" value="DELETE">
+              <a onclick="eliminar({{$item->id}})" ><i class="icon-remove"></i></a>
+            {{ Form::close() }}
+          </td>
+        @endif
         </tr>
        
        @endforeach

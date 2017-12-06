@@ -146,9 +146,31 @@ class DocumentoController extends Controller
 	        			 'documento.num_documento as num_documento',
 	        			 'documento.id_doc as id_doc')
 	      		->first();
-
+/*
     	$pdf = PDF::loadView('documento.pdf', ['documento'=> $documento]);
 		return $pdf->download($documento->titulo.'.pdf');
+*/
+
+
+		$phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+	// Every element you want to append to the word document is placed in a section.
+	// To create a basic section:
+	$section = $phpWord->addSection();
+
+
+	// After creating a section, you can append elements:
+	$section->addText($documento->titulo, array('name'=>'Tahoma', 'size'=>16, 'bold'=>true, 'alignment' => 'center'));
+	$section->addText($documento->nombre.' '.$documento->apellido);
+	$section->addText($documento->fecha);
+	\PhpOffice\PhpWord\Shared\Html::addHtml($section, $documento->cuerpo);
+
+	// Finally, write the document:
+        // The files will be in your public folder
+	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+	$objWriter->save('aloha.docx');
+	return response()->download('aloha.docx');
+	
 		
     }
 

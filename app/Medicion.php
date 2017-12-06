@@ -14,6 +14,6 @@ class Medicion extends Model
     protected $primaryKey='id'; //asignamos la PK de nuestra tabla.
 
      protected $fillable = [
-        'id_proceso', 'fecha_medicion', 'detalles', 'anotacion_mejora', 
+        'id_proceso', 'fecha_medicion', 'detalles', 'anotacion_mejora', 'id_usuario',
     ];
 }

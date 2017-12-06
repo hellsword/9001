@@ -31,13 +31,15 @@
         <td>{{$proceso->cod_area}}</td>
         <td>{{$proceso->tiempo_medicion}} días</td>
         <td> <a href="{{URL::action('ProcesoController@show',$proceso->id_proceso)}}" ><i class="icon-eye-open"></i></a>  </td>
-        <td> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a>   </td>
-        <td>
-          {{Form::Open(array('action'=>array('ProcesoController@destroy', $proceso->id_proceso), 'method'=>'delete', 'id'=>$proceso->id_proceso.'-destroy' ))}}
-            <input type="hidden" name="_method" value="DELETE">
-            <a onclick="eliminar({{$proceso->id_proceso}})" ><i class="icon-remove"></i></a>
-          {{ Form::close() }}
-        </td>
+        @if(Auth::user()->tipo=='admin' OR Auth::user()->id == $proceso->id_responsable)
+          <td> <a href="{{URL::action('ProcesoController@edit',$proceso->id_proceso)}}"><i class="icon-edit"></i></a>   </td>
+          <td>
+            {{Form::Open(array('action'=>array('ProcesoController@destroy', $proceso->id_proceso), 'method'=>'delete', 'id'=>$proceso->id_proceso.'-destroy' ))}}
+              <input type="hidden" name="_method" value="DELETE">
+              <a onclick="eliminar({{$proceso->id_proceso}})" ><i class="icon-remove"></i></a>
+            {{ Form::close() }}
+          </td>
+        @endif
         </tr>
        @endforeach
        </table>
