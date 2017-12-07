@@ -28,17 +28,17 @@
                     
                     <p>
                         <label>Proceso</label>
-                        <span class="field"><input type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" value="{{$riesgos->nombre}}"  readonly="" /></span>
+                        <span class="field"><input  required=""  type="text" id="id_proceso" name="id_proceso" class="input-xxlarge" value="{{$riesgos->nombre}}"  readonly="" /></span>
                     </p>
 
                     <p>
                         <label>Título del riesgo</label>
-                        <span class="field"><input type="text" name="titulo" class="input-xxlarge" value="{{$riesgos->titulo}}" /></span>
+                        <span class="field"><input  required=""  type="text" name="titulo" class="input-xxlarge" value="{{$riesgos->titulo}}" /></span>
                     </p>
 
                     <p>
                         <label>Descripción</label>
-                        <span class="field"><textarea id="descripcion" name="descripcion" cols="80" rows="10" class="span7" style="resize: vertical" >{{$riesgos->descripcion}}</textarea></span>
+                        <span class="field"><textarea  required=""  id="descripcion" name="descripcion" cols="80" rows="10" class="span7" style="resize: vertical" >{{$riesgos->descripcion}}</textarea></span>
                     </p>
                     
                     <br />

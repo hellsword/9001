@@ -28,13 +28,13 @@
 
                     <p>
                         <label>Autor:</label>
-                        <span class="field"><input type="text" name="autor_nombre" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
-                        <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge" value="{{ Auth::user()->id}}" /></span>
+                        <span class="field"><input type="text" name="autor_nombre" id="autor_nombre" required="" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
+                        <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge"  required="" value="{{ Auth::user()->id}}" /></span>
                     </p>
 
                     <p>
                         <label>Fecha:</label>
-                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
+                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
                     </p>
 
                     <p>
@@ -42,7 +42,7 @@
                                 <span class="field">
                                 <div class="panel-body">
                                     
-                                        <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" name="cuerpo" placeholder="Este es el textarea que es modificado por la clase ckeditor">
+                                        <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" required="" name="cuerpo" placeholder="Este es el textarea que es modificado por la clase ckeditor">
                                             
                                         </textarea>
                                    

@@ -17,24 +17,24 @@
 
                 <p>
                     <label>Versión del proceso:</label>
-                    <span class="field"><input type="text" name="version_proceso" id="version_proceso" class="input-xxlarge" value="{{$documentacion->version_proceso}}" /></span>
+                    <span class="field"><input type="text" name="version_proceso"  required="" id="version_proceso" class="input-xxlarge" value="{{$documentacion->version_proceso}}" /></span>
                 </p>
                 <p>
                     <label>Fecha inicio:</label>
-                    <span class="field"><input type="text" name="fecha_inicio" id="fecha_inicio" class="input-xxlarge" value="{{$documentacion->fecha_inicio}}"  /></span>
+                    <span class="field"><input type="text" name="fecha_inicio"  required=""  id="fecha_inicio" class="input-xxlarge" value="{{$documentacion->fecha_inicio}}"  /></span>
                 </p>
 
                 <p>
                     <label>Fecha finalización:</label>
-                    <span class="field"><input type="text" name="fecha_fin" id="fecha_fin" class="input-xxlarge" value="{{$documentacion->fecha_fin}}"  /></span>
+                    <span class="field"><input type="text" required=""  name="fecha_fin" id="fecha_fin" class="input-xxlarge" value="{{$documentacion->fecha_fin}}"  /></span>
                 </p>
                 <p>
                     <label>Número de cambios:</label>
-                    <span class="field"><input type="text" name="num_cambios" id="num_cambios" class="input-xxlarge" value="{{$documentacion->num_cambios}}"  /></span>
+                    <span class="field"><input type="text" required="" name="num_cambios" id="num_cambios" class="input-xxlarge" value="{{$documentacion->num_cambios}}"  /></span>
                 </p>
                 <p>
                     <label>Cantidad de participantes:</label>
-                    <span class="field"><input type="text" name="num_participantes" id="num_participantes" class="input-xxlarge" value="{{$documentacion->num_participantes}}"  /></span>
+                    <span class="field"><input type="text" required="" name="num_participantes" id="num_participantes" class="input-xxlarge" value="{{$documentacion->num_participantes}}"  /></span>
                 </p>
 
                 <p class="stdformbutton">
