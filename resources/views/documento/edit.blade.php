@@ -13,7 +13,7 @@
                     <input type="hidden" name="num_documento" value="{{$documento->num_documento}}" >
                     <p>
                         <label>Título:</label>
-                        <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" value="{{$documento->titulo}}"  /></span>
+                        <span class="field"><input type="text" required="" placeholder="Debe ingresar Título para editar Documento" name="titulo" id="titulo" class="input-xxlarge" value="{{$documento->titulo}}"  /></span>
                     </p>
 
                     <p>
@@ -23,12 +23,12 @@
 
                     <p>
                         <label>Fecha:</label>
-                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" value="{{$documento->fecha}}"  /></span>
+                        <span class="field"><input type="text" required="" placeholder="Debe ingresra fecha en formato: 'día/mes/año'" name="fecha" id="fecha" class="input-xxlarge" value="{{$documento->fecha}}"  /></span>
                     </p>
 
                     <p>
                         <label>Cuerpo del documento:</label>
-                        <span class="field"><textarea id="cuerpo" name="cuerpo" cols="100" rows="15" class="span5" style="resize: vertical" >{{$documento->cuerpo}}</textarea></span> 
+                        <span class="field"><textarea id="cuerpo" name="cuerpo" required="" placeholder="Debe editar el cuerpo del Documento" cols="100" rows="15" class="span5" style="resize: vertical" >{{$documento->cuerpo}}</textarea></span> 
                     </p>
 
                     <p class="stdformbutton">

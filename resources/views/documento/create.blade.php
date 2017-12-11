@@ -23,7 +23,7 @@
                     <input type="hidden" name="id_doc" id="id_doc" class="input-xxlarge"  value="{{$documentacion_id}}" />
                     <p>
                         <label>Título (nombre del documento):</label>
-                        <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="titulo" required="" placeholder="Debe ingresar el nombre del documento" id="titulo" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
@@ -34,13 +34,13 @@
 
                     <p>
                         <label>Fecha:</label>
-                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
+                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" placeholder="Debe ingresar fecha en el siguiente formato 'día/mes/año'" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
                     </p>
 
                     <p>
                                 <label>Redacte su documento:</label>
-                                <span class="field">
-                                <div class="panel-body">
+                                <span class="field" >
+                                <div class="panel-body" >
                                     
                                         <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" required="" name="cuerpo" placeholder="Este es el textarea que es modificado por la clase ckeditor">
                                             
@@ -51,7 +51,7 @@
                     </p>
 
                     <p class="stdformbutton">
-                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <button type="submit" class="btn btn-primary">Aceptar</button >
                         <a href="/documentacion/{{$documentacion_id}}" class="btn btn-danger" role="button">Volver</a>
                     </p>
                     

@@ -2,12 +2,12 @@
 	{!! Form::label('id_proceso','ID Proceso ') !!}
   <input type="hidden" name="" id="temp" value="">
   {!! Form::hidden('id_proceso', null, ['class' =>'form-control', 'id' => 'id_proceso']) !!}
-  {!! Form::text('proceso', null, ['class' =>'form-control', 'id' => 'proceso', 'required' => 'required']) !!}
+  {!! Form::text('proceso', null, ['class' =>'form-control', 'id' => 'proceso', 'required' => 'required', 'placeholder' => 'Debe ingresar el ID del proceso presionando tecla e para visualizar proceso']) !!}
 
 </div>
 <div class="form-group">
 	{!! Form::label('fecha_medicion','fecha medicion') !!}
-	{!! Form::text('fecha_medicion', date("Y-m-d H:i:s"), ['class' =>'form-control', 'required']) !!}
+	{!! Form::text('fecha_medicion', date("Y-m-d H:i:s"), ['class' =>'form-control', 'required' , 'placeholder' => 'Debe ingresar fecha de medición en formato:día/mes/año']) !!}
 
 </div>
 
@@ -15,7 +15,7 @@
 	{!! Form::label('detalles','detalles') !!}</di
 <div class="form-group" required="">
 	{!! Form::label('anotacion_mejora','anotacion mejora') !!}
-	{!! Form::textarea('anotacion_mejora', null, ['class' =>'form-control','required' => 'required']) !!}
+	{!! Form::textarea('anotacion_mejora', null, ['class' =>'form-control','required' => 'required', 'placeholder' => 'Debe ingresar detalle para la medición']) !!}
 
 </div>
 

@@ -28,7 +28,7 @@
                     
                     <p>
                         <label>Proceso</label>
-                        <input type="hidden" name="" id="temp" value="" required="" >
+                        <input type="hidden" name="" id="temp" value="" required=""  >
                         <input type="hidden" name="id_proceso" id="id_proceso" value="" required="">
                         <span class="field"><input type="text" id="proceso" required="" name="proceso" class="input-xxlarge" placeholder="Comience a escribir para buscar su riesgo" /></span>
                     </p>

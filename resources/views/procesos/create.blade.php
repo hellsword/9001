@@ -29,12 +29,12 @@
                     
                     <p>
                         <label>Nombre del proceso</label>
-                        <span class="field"><input type="text" name="nombre" required="" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="nombre" required="" placeholder="Debe ingresar nombre del proceso" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
                         <label>ID del responsable</label>
-                        <span class="field"><input type="text" id="id_responsable" required="" name="id_responsable" class="input-xxlarge"  /></span>
+                        <span class="field"><input type="text" id="id_responsable" required="" placeholder="Debe ingresar ID del responsable" name="id_responsable" class="input-xxlarge"  /></span>
                     </p>
 
                     <p>
@@ -43,11 +43,11 @@
 
                     <p>
                         <label>Implementación</label>
-                        <span class="field"><input type="text" name="implementacion" required="" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="implementacion" required="" placeholder="Debe ingresar datos de implementacion" class="input-xxlarge" /></span>
                     </p>
                     <p>
                         <label>Tiempo medición (días)</label>
-                        <span class="field"><input type="text" name="tiempo_medicion" required="" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="tiempo_medicion" placeholder="Debe ingresar tiempo de medición en días" required="" class="input-xxlarge" /></span>
                     </p>
 
                      <p>

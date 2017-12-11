@@ -17,18 +17,18 @@
                     <input type="hidden" name="id_doc" id="id_doc" class="input-xxlarge"  value="{{$documentacion_id}}" />
                     <p>
                         <label>Título:</label>
-                        <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" required="" /></span>
+                        <span class="field"><input type="text" name="titulo" id="titulo" class="input-xxlarge" placeholder="Ingrese título" required="" /></span>
                     </p>
 
                     <p>
                         <label>Autor:</label>
-                        <span class="field"><input type="text" name="autor_nombre" required="" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
+                        <span class="field"><input type="text" name="autor_nombre"  required="" id="autor_nombre" class="input-xxlarge" value="{{ Auth::user()->nombre}} {{ Auth::user()->apellido}}" readonly="" /></span>
                         <span class="hidden"><input type="text" name="autor" id="autor" class="input-xxlarge" required="" value="{{ Auth::user()->id}}" /></span>
                     </p>
 
                     <p>
                         <label>Fecha:</label>
-                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
+                        <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" placeholder="Debe ingresar una fecha en formato: 'día/mes/año'" required="" value="<?php echo date("d/m/Y"); echo " " . date("h:i").date("a");?>" /></span>
                     </p>
 
                     <p>

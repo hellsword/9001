@@ -11,30 +11,30 @@
         		{!!Form::model($formacion, ['method'=>'PATCH', 'route'=>['formacion.update', $formacion->id_usuario],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
                 <p>
                     <label>Años de experiencia</label>
-                    <span class="field"><input  required=""  type="text" name="aniosexperiencia" id="aniosexperiencia" class="input-xxlarge" value="{{$formacion->aniosexperiencia}}" /></span>
+                    <span class="field"><input  required="" placeholder="Debe ingresar los años de experiencia" type="text" name="aniosexperiencia" id="aniosexperiencia" class="input-xxlarge" value="{{$formacion->aniosexperiencia}}" /></span>
                 </p>
                 <p>
                     <label>Números de trabajos</label>
-                    <span class="field"><input required="" type="text" name="Ntrabajos" id="Ntrabajos" class="input-xxlarge" value="{{$formacion->Ntrabajos}}" /></span>
+                    <span class="field"><input required="" placeholder="Debe ingresar la cantidad de trabajos anteriores al nuevo cargo" type="text" name="Ntrabajos" id="Ntrabajos" class="input-xxlarge" value="{{$formacion->Ntrabajos}}" /></span>
                 </p>
                 <p>
                     <label>Grado</label>
-                    <span class=field><input required="" type="text" name="grado" id="grado" class="input-xxlarge" value="{{$formacion->grado}}" /></span>
+                    <span class=field><input required="" placeholder="Debe ingresar el Grado Académico" type="text" name="grado" id="grado" class="input-xxlarge" value="{{$formacion->grado}}" /></span>
                 </p>
 
                 <p>
                     <label>Cursos diplomados</label>
-                    <span class="field"><input required="" type="text" name="Cursosodiplomados" id="Cursosodiplomados" class="input-xxlarge" value="{{$formacion->Cursosodiplomados}}" /></span>
+                    <span class="field"><input required="" placeholder="Debe ingresar los Cursos Diplomados" type="text" name="Cursosodiplomados" id="Cursosodiplomados" class="input-xxlarge" value="{{$formacion->Cursosodiplomados}}" /></span>
                 </p>
 
                 <p>
                     <label>Recomendaciones</label>
-                    <span class="field"><input required="" type="text" name="recomendaciones" id="recomendaciones" class="input-xxlarge" value="{{$formacion->recomendaciones}}" /></span>
+                    <span class="field"><input required="" type="text" placeholder="Debe ingresar las recomendaciones" name="recomendaciones" id="recomendaciones" class="input-xxlarge" value="{{$formacion->recomendaciones}}" /></span>
                 </p>
 
                 <p>
                     <label>Curriculum</label>
-                    <span class="field"><input required="" type="text" name="curriculum" id="curriculum" class="input-xxlarge" value="{{$formacion->curriculum}}" /></span>
+                    <span class="field"><input required="" type="text" placeholder="Debe ingresar el curriculum" name="curriculum" id="curriculum" class="input-xxlarge" value="{{$formacion->curriculum}}" /></span>
                 </p>
 
                 <p class="stdformbutton">
