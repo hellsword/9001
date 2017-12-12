@@ -27,26 +27,26 @@
                     
                     <p>
                         <label>Nombre del proceso</label>
-                        <span class="field"><input type="text" name="nombre" class="input-xxlarge" value="{{$proceso->nombre}}" required="" /></span>
+                        <span class="field"><input type="text" name="nombre" class="input-xxlarge" value="{{$proceso->nombre}}" required="" placeholder="Debe ingresar el nombre del proceso para editar" /></span>
                     </p>
 
                     <p>
                         <label>ID del responsable</label>
-                        <span class="field"><input type="text" id="id_responsable" name="id_responsable" class="input-xxlarge" value="{{$proceso->id_responsable}}" required="" /></span>
+                        <span class="field"><input type="text" id="id_responsable" name="id_responsable" class="input-xxlarge" value="{{$proceso->id_responsable}}" required="" placeholder="Debe ingresar el ID del Responsable" /></span>
                     </p>
 
                     <p>
                         <label>metas</label>
-                        <span class="field"><textarea id="metas" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" >{{$proceso->metas}}</textarea></span>
+                        <span class="field"><textarea  id="metas" required="" placeholder="Debe ingresar las metas que serán soportadas por este proceso" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" >{{$proceso->metas}}</textarea></span>
                     </p>
 
                     <p>
                         <label>Implementación</label>
-                        <span class="field"><input type="text" name="implementacion"  class="input-xxlarge" value="{{$proceso->implementacion}}" required="" /></span>
+                        <span class="field"><input type="text" name="implementacion" placeholder="Debe ingresar nivel de implmentación " class="input-xxlarge" value="{{$proceso->implementacion}}" required="" /></span>
                     </p>
                     <p>
                         <label>Tiempo medición (días)</label>
-                        <span class="field"><input type="text" name="tiempo_medicion" class="input-xxlarge" required="" value="{{$proceso->tiempo_medicion}}" /></span>
+                        <span class="field"><input type="text" name="tiempo_medicion" placeholder="Debe ingresar tiempo de medición en días" class="input-xxlarge" required="" value="{{$proceso->tiempo_medicion}}" /></span>
                     </p>
 
                      <p>

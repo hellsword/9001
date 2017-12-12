@@ -29,12 +29,12 @@
                     
                     <p>
                         <label>Nombre del proceso</label>
-                        <span class="field"><input type="text" name="nombre" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="nombre" required="" placeholder="Debe ingresar nombre del proceso" class="input-xxlarge" /></span>
                     </p>
 
                     <p>
                         <label>ID del responsable</label>
-                        <span class="field"><input type="text" id="id_responsable" name="id_responsable" class="input-xxlarge"  /></span>
+                        <span class="field"><input type="text" id="id_responsable" required="" placeholder="Debe ingresar ID del responsable" name="id_responsable" class="input-xxlarge"  /></span>
                     </p>
 
                     <p>
@@ -43,11 +43,11 @@
 
                     <p>
                         <label>Implementación</label>
-                        <span class="field"><input type="text" name="implementacion"  class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="implementacion" required="" placeholder="Debe ingresar datos de implementacion" class="input-xxlarge" /></span>
                     </p>
                     <p>
                         <label>Tiempo medición (días)</label>
-                        <span class="field"><input type="text" name="tiempo_medicion" class="input-xxlarge" /></span>
+                        <span class="field"><input type="text" name="tiempo_medicion" placeholder="Debe ingresar tiempo de medición en días" required="" class="input-xxlarge" /></span>
                     </p>
 
                      <p>
@@ -129,7 +129,7 @@
 
 
         var str = '<label>metas</label>'+
-                        '<span class="field"><textarea id="metas" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" placeholder="*meta1\n*meta2\n*meta3\n*......"></textarea></span>';
+                        '<span class="field"><textarea id="metas" name="metas" cols="80" rows="5" class="span5" style="resize: vertical" required="" placeholder="*meta1\n*meta2\n*meta3\n*......"></textarea></span>';
 
         document.getElementById('lista_metas').innerHTML = str;
 
