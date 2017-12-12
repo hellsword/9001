@@ -53,6 +53,10 @@ class DocumentoController extends Controller
 	        }
 			 $document->id_doc = $request->get('id_doc');
 			 $document->titulo = $request->get('titulo');
+			 if ($request->get('text_area') == '') {
+			 	alert()->error('El campo "Cuerpo de Documento" no puede estar vacío')->persistent('Cerrar');
+			 	return Redirect::to('/documentacion/'.$request->get('id_doc'));
+			 }
 			 $document->cuerpo = $request->get('cuerpo');
 			 $document->fecha = $request->get('fecha');
 			 $document->autor = $request->get('autor');
