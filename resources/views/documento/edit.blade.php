@@ -17,22 +17,22 @@
             <div class="widgetcontent bordered shadowed nopadding" id="formulario">
                 {!!Form::model($documento, ['method'=>'PATCH', 'route'=>['documento.update', $documento->id_doc],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
                     <input type="hidden" name="num_documento" value="{{$documento->num_documento}}" >
-            <!--
+           
                     <p>
                         <label>Título:</label>
                         <span class="field"><input type="text" required="" placeholder="Debe ingresar Título para editar Documento" name="titulo" id="titulo" class="input-xxlarge" value="{{$documento->titulo}}"  /></span>
                     </p>
--->
+
                     <p>
                         <label>Autor:</label>
                         <span class="field"><input type="text" name="autor" id="autor" class="input-xxlarge" value="{{$documento->nombre}} {{$documento->apellido}}" readonly="" /></span>
                     </p>
-<!--
+
                     <p>
                         <label>Fecha:</label>
                         <span class="field"><input type="text" required="" placeholder="Debe ingresra fecha en formato: 'día/mes/año'" name="fecha" id="fecha" class="input-xxlarge" value="{{$documento->fecha}}"  /></span>
                     </p>
--->
+
                     <p>
 
                         <label>Redacte su documento:</label>
