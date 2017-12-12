@@ -33,10 +33,13 @@ Route::get('/getfile/{id}', function($id)
     return response()->download(public_path($data), $nombre);
 });
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/ver_perfil', 'UsuarioController@ver_perfil');
 Route::get('/usuarios/ver_ficha', 'UsuarioController@ver_ficha');
 Route::get('/documento/downloadPDF', 'DocumentoController@downloadPDF');
+Route::get('/documentacion/lista', 'DocumentacionController@lista');
+Route::get('documentacion/descarga_lista','DocumentacionController@descarga_lista');
 
 //RUTAS AUTOCOMPLETADO EN NUEVO PROCESO
 Route::get('/nuevo_proceso', 'ProcesoController@create');

@@ -1,6 +1,12 @@
 @extends ('layouts.tema')
 @section ('contenido')
 
+<!-- PARA QUE FUNCIONE EL AUTOCOMPLETADO -->
+<script type="text/javascript" src="{!! asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}"></script>
+
+<!-- EDITOR DE TEXTO -->
+<script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
+
 <div class="pagetitle">
     <h1>Edición de documento </h1>
 </div><!--pagetitle-->
@@ -27,8 +33,16 @@
                     </p>
 
                     <p>
-                        <label>Cuerpo del documento:</label>
-                        <span class="field"><textarea id="cuerpo" name="cuerpo" cols="100" rows="15" class="span5" style="resize: vertical" >{{$documento->cuerpo}}</textarea></span> 
+                        <label>Redacte su documento:</label>
+                        <span class="field">
+                        <div class="panel-body">
+                            
+                                <textarea class="ckeditor" rows="10" cols="80" id="cuerpo" name="cuerpo" placeholder="Este es el textarea que es modificado por la clase ckeditor">
+                                    {{$documento->cuerpo}}
+                                </textarea>
+                           
+                        </div>
+                        </span> 
                     </p>
 
                     <p class="stdformbutton">

@@ -167,10 +167,6 @@ class ProcesoController extends Controller
         $proceso->tiempo_medicion=$request->get('tiempo_medicion');
         $proceso->cod_area=$request->get('cod_area');
         $proceso->update();  
-        
-        $documentacion = DB::table('documentacion')->where('id_proceso', $id)->first();
-        Documentacion::where('id_proceso', $id)
-              ->update(['num_cambios' => $documentacion->num_cambios+1]);
 
         DB::commit();
           

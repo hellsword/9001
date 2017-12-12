@@ -168,8 +168,8 @@ class DocumentoController extends Controller
 	// Finally, write the document:
         // The files will be in your public folder
 	$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-	$objWriter->save('aloha.docx');
-	return response()->download('aloha.docx');
+	$objWriter->save($documento->titulo.'.docx');
+	return response()->download($documento->titulo.'.docx');
 	
 		
     }

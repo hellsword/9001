@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2017 a las 17:30:27
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.9
+-- Tiempo de generación: 08-12-2017 a las 00:53:10
+-- Versión del servidor: 10.1.28-MariaDB
+-- Versión de PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,7 +34,8 @@ CREATE TABLE `archivo` (
   `titulo` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `autor` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `fecha` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
-  `archivo` text COLLATE utf8_spanish2_ci
+  `archivo` text COLLATE utf8_spanish2_ci,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -118,6 +119,13 @@ CREATE TABLE `documentacion` (
   `id_proceso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `documentacion`
+--
+
+INSERT INTO `documentacion` (`id_doc`, `version_proceso`, `fecha_inicio`, `fecha_fin`, `num_cambios`, `num_participantes`, `id_proceso`) VALUES
+(1, '1.0.0', '06/12/2017', '', 0, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -181,8 +189,16 @@ CREATE TABLE `medicions` (
   `id_proceso` int(11) NOT NULL,
   `fecha_medicion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `detalles` text COLLATE utf8_spanish2_ci,
-  `anotacion_mejora` text COLLATE utf8_spanish2_ci
+  `anotacion_mejora` text COLLATE utf8_spanish2_ci,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `medicions`
+--
+
+INSERT INTO `medicions` (`id`, `id_proceso`, `fecha_medicion`, `detalles`, `anotacion_mejora`, `id_usuario`) VALUES
+(1, 1, '2017-12-06 15:51:57', 'ewqeqwe', 'qweqweqw', 11);
 
 -- --------------------------------------------------------
 
@@ -195,8 +211,16 @@ CREATE TABLE `objetivo` (
   `to_make` varchar(1000) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `resources` varchar(1000) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `tipo_indicador` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `id_proceso` int(11) DEFAULT NULL
+  `id_proceso` int(11) DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `objetivo`
+--
+
+INSERT INTO `objetivo` (`id_objetivo`, `to_make`, `resources`, `tipo_indicador`, `id_proceso`, `id_usuario`) VALUES
+(1, 'accon 1', 'eqweqw', 'ewqeqw', 1, 15);
 
 -- --------------------------------------------------------
 
@@ -236,6 +260,13 @@ CREATE TABLE `proceso` (
   `cod_area` varchar(45) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `proceso`
+--
+
+INSERT INTO `proceso` (`id_proceso`, `nombre`, `id_responsable`, `metas`, `implementacion`, `tiempo_medicion`, `cod_area`) VALUES
+(1, 'proceso 1', 11, '*meta1\r\n*meta2', 'implkementacvion1', 30, 'REQM');
+
 -- --------------------------------------------------------
 
 --
@@ -246,8 +277,16 @@ CREATE TABLE `riesgos` (
   `id_riesgo` int(11) NOT NULL,
   `titulo` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `descripcion` varchar(400) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `id_proceso` int(11) DEFAULT NULL
+  `id_proceso` int(11) DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `riesgos`
+--
+
+INSERT INTO `riesgos` (`id_riesgo`, `titulo`, `descripcion`, `id_proceso`, `id_usuario`) VALUES
+(1, 'riesgo 1', 'wqeqweqw\r\ne\r\nqw\r\ne\r\nwq\r\neqweqew', 1, 15);
 
 -- --------------------------------------------------------
 
@@ -275,9 +314,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `rut`, `nombre`, `apellido`, `email`, `password`, `tipo`, `estado`, `fecha_nac`, `remember_token`, `created_at`, `updated_at`) VALUES
-(11, '18.244.245-2', 'Felipe', 'Ferrada', 'personal@ucm.cl', '$2y$10$2lSNpowYD7Q05yvVuU3eOOKwRKTqEPGOKUqa4jX7FJCYVzspnSFP6', 'personal', 'activo', '12/02/1992', 'wZFubgQ9Z3aMKUjmjx7827vd9SQrTKfED5FHm4VjQ4TGmLRkwVeoKdWBxV2r', '2017-12-05 13:01:32.0', '2017-12-05 13:01:32.0'),
-(14, '197576576-2', 'boris', 'mora', 'admin@ucm.cl', '$2y$10$o9IUnY3DJ54vIPSXmywa4eE68ThJUtb2loS9xvRuFJJFuclu6f.KW', 'admin', 'activo', '12/04/1992', 'k6ZyTHrMEiKxvbLgJgdza9jxogPvt7pOueswC2Ps0ows9SzfMcrnEJXWw6JL', '2017-12-05 13:15:13.0', '2017-12-05 13:15:13.0'),
-(15, '18.226.990-5', 'Nicolás', 'Muñoz', 'Persnal2@ucm.cl', '$2y$10$thhmYTtnLYiQT5MRSOJ3euM.1cxXDPPHZrnaScRL0te72/e5q9qtq', 'personal', 'activo', '05/11/1992', NULL, '2017-12-05 13:20:08.0', '2017-12-05 13:20:08.0'),
+(11, '18.244.245-2', 'Felipe', 'Ferrada', 'personal@ucm.cl', '$2y$10$2lSNpowYD7Q05yvVuU3eOOKwRKTqEPGOKUqa4jX7FJCYVzspnSFP6', 'personal', 'activo', '12/02/1992', 'u81IhrBkDfO5c6JSzgwcjfJm3wEDAcRXSpVUpePKFFpIEbJpLEvnDLB3YOTP', '2017-12-05 13:01:32.0', '2017-12-05 13:01:32.0'),
+(14, '197576576-2', 'boris', 'mora', 'admin@ucm.cl', '$2y$10$o9IUnY3DJ54vIPSXmywa4eE68ThJUtb2loS9xvRuFJJFuclu6f.KW', 'admin', 'activo', '12/04/1992', 'JdL88ScCSRFmlp7qbG40ExLR1gXVHOg7Jsehxz3KeROoMiLIPuZfm9wyYhMC', '2017-12-05 13:15:13.0', '2017-12-05 13:15:13.0'),
+(15, '18.226.990-5', 'Nicolás', 'Muñoz', 'personal2@ucm.cl', '$2y$10$thhmYTtnLYiQT5MRSOJ3euM.1cxXDPPHZrnaScRL0te72/e5q9qtq', 'personal', 'activo', '05/11/1992', 'xFKSyDvxHSKkryog61EhhXDa8swyTQZcREwMlcUTrG8Au851inZrH4JAIB3y', '2017-12-05 13:20:08.0', '2017-12-05 13:20:08.0'),
 (16, '18.226.9905', 'NICOLAS2', 'MMSS', 'personal4@ucm.cl', '$2y$10$kEV7zc55QenmxrMaKuntPOBOZmeuLXKoM7oAC3UDPM5q2SRaItIna', 'personal', 'activo', '12/04/1992', NULL, '2017-12-05 15:03:42.0', '2017-12-05 15:03:42.0');
 
 --
@@ -378,31 +417,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `documentacion`
 --
 ALTER TABLE `documentacion`
-  MODIFY `id_doc` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_doc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `medicions`
 --
 ALTER TABLE `medicions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `objetivo`
 --
 ALTER TABLE `objetivo`
-  MODIFY `id_objetivo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_objetivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `proceso`
 --
 ALTER TABLE `proceso`
-  MODIFY `id_proceso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `riesgos`
 --
 ALTER TABLE `riesgos`
-  MODIFY `id_riesgo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_riesgo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

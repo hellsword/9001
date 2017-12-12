@@ -211,7 +211,6 @@
                                     <h3><a href="#">{{$proceso->nombre_proceso}}</a></h3>
                                     <div>
                                         <ul >
-                                            <li>ID: {{$proceso->id_proceso}}</li>
                                             <li>Responsable: {{$proceso->nombre_user}} {{$proceso->apellido_user}}</li>
                                             <li>Fecha de creación: {{$proceso->fecha_inicio}}</li>
                                         </ul>
