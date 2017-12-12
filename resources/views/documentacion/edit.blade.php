@@ -10,6 +10,7 @@
         <h4 class="widgettitle nomargin shadowed">Información general de la documentación</h4>
         <div class="widgetcontent bordered shadowed nopadding" id="formulario">
             {!!Form::model($documentacion, ['method'=>'PATCH', 'route'=>['documentacion.update', $documentacion->id_doc],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
+             
                 <p>
                     <label>Nombre del proceso:</label>
                     <span class="field"><input type="text" name="to_make" id="to_make" required="" placeholder="Debe Ingresar el nombre del Proceso" class="input-xxlarge" value="{{$nombre_proceso->nombre}}" readonly="" /></span>
@@ -21,12 +22,20 @@
                 </p>
                 <p>
                     <label>Fecha inicio:</label>
+
+                    <span class="field"><input type="date" name="fecha_inicio" id="fecha_inicio" class="input-xxlarge" value="{{$documentacion->fecha_inicio}}"  /></span>
+
                     <span class="field"><input type="text" name="fecha_inicio" placeholder="Debe Ingresar la fecha de Inicio en el formato:'día/mes/año' "  required=""  id="fecha_inicio" class="input-xxlarge" value="{{$documentacion->fecha_inicio}}"  /></span>
+
                 </p>
 
                 <p>
                     <label>Fecha finalización:</label>
+
+                    <span class="field"><input type="date" name="fecha_fin" id="fecha_fin" class="input-xxlarge" value="{{$documentacion->fecha_fin}}"  /></span>
+
                     <span class="field"><input type="text" required="" placeholder="Debe Ingresar la fecha de finalización en el formato:'día/mes/año' "  name="fecha_fin" id="fecha_fin" class="input-xxlarge" value="{{$documentacion->fecha_fin}}"  /></span>
+
                 </p>
                 <p>
                     <label>Número de cambios:</label>

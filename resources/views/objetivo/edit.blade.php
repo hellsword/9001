@@ -11,12 +11,12 @@
             	{!!Form::model($objetivo, ['method'=>'PATCH', 'route'=>['objetivo.update', $objetivo->id_objetivo],'class'=>'stdform stdform2','autocomplete'=>'off']) !!}
         		{{Form::token()}}
         		    <p>
-                        <label>To make:</label>
+                        <label>Acción a realizar:</label>
                         <span class="field"><input type="text" name="to_make" id="to_make" class="input-xxlarge" value="{{$objetivo->to_make}}" /></span>
                     </p>
 
                     <p>
-                        <label>Resources:</label>
+                        <label>Recursos:</label>
                         <span class="field"><input type="text" name="resources" id="resources" class="input-xxlarge" value="{{$objetivo->resources}}"/></span>
                     </p>
                     <p>

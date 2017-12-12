@@ -5,6 +5,8 @@
     <h1>Área de Documentaciones</h1>
 </div><!--pagetitle-->
 
+<a href="/documentacion/lista"><button class="btn btn-success">Ver lista completa de documentos y archivos</button></a>
+
 <div class="maincontent">
     <div class="contentinner">
         <table class="table table-striped table-bordered table-condensed table-hover">

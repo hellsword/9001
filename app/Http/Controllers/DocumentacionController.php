@@ -104,6 +104,11 @@ class DocumentacionController extends Controller
   public function update(Request $request, $id)
     {
 
+      if ($request->get('fecha_inicio') > $request->get('fecha_fin')) {
+        alert()->error('La fecha inicial no puede ser mayor a la fecha de termino del proceso')->persistent('Cerrar');
+        return Redirect::to('/documentacion');
+      }
+
       $documentacion = Documentacion::findOrFail($id);
       $documentacion->version_proceso=$request->get('version_proceso');
       $documentacion->fecha_inicio=$request->get('fecha_inicio');
@@ -114,6 +119,80 @@ class DocumentacionController extends Controller
 
       alert()->success('Documentación actualizada')->persistent('Cerrar');
       return Redirect::to('/documentacion');
+    }
+
+
+
+    public function lista(Request $request){
+
+         $documentos = DB::table('documento')
+         ->join('documentacion', 'documentacion.id_doc', '=', 'documento.id_doc')
+         ->join('users', 'users.id', '=', 'documento.autor')
+
+         //Filtros
+         ->where('users.id', 'LIKE', '%'.$request->get('id_usuario').'%')
+         ->where('documentacion.id_proceso', 'LIKE', '%'.$request->get('id_proceso').'%')
+
+              ->select('documento.titulo as titulo',
+                 'documento.fecha as fecha',
+                 'documento.cuerpo as cuerpo',
+                 'users.nombre as nombre',
+                 'users.apellido as apellido',
+                 'documento.id_doc as id_doc',
+                 'documento.num_documento as num_documento')
+            ->get();
+
+
+          $archivos = DB::table('archivo')
+          ->join('documentacion', 'documentacion.id_doc', '=', 'archivo.id_doc')
+          ->join('users', 'users.id', '=', 'archivo.autor')
+
+          //Filtros
+         ->where('users.id', 'LIKE', '%'.$request->get('id_usuario').'%')
+         ->where('documentacion.id_proceso', 'LIKE', '%'.$request->get('id_proceso').'%')
+
+              ->select('archivo.titulo as titulo',
+                 'archivo.fecha as fecha',
+                 'archivo.archivo as archivo',
+                 'users.nombre as nombre',
+                 'users.apellido as apellido',
+                 'archivo.id_doc as id_doc',
+                 'archivo.num_archivo as num_archivo')
+            ->get();
+
+            $tipo = $request->get('tipo');
+
+
+          $personales = DB::table('personal')
+          ->join('users', 'users.id', '=', 'personal.id_usuario')
+            ->get();
+
+
+          $procesos = DB::table('proceso')->get();
+
+      return view("documentacion.lista", ["documentos"=>$documentos, "archivos"=>$archivos, "procesos"=>$procesos, "personales"=>$personales, "tipo"=>$tipo]); 
+    }
+
+
+
+
+  public function descarga_lista(Request $request){
+
+//return '<textarea>'.$request->get('elementos').'</textarea>';
+    $phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+  // Every element you want to append to the word document is placed in a section.
+  // To create a basic section:
+  $section = $phpWord->addSection();
+  \PhpOffice\PhpWord\Shared\Html::addHtml($section, $request->get('elementos'));
+
+  // Finally, write the document:
+        // The files will be in your public folder
+  $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+  $objWriter->save('listado.docx');
+  return response()->download('listado.docx');
+  
+    
     }
 
   

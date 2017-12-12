@@ -25,14 +25,13 @@
                         <label>Fecha:</label>
                         <span class="field"><input type="text" name="fecha" id="fecha" class="input-xxlarge" value="{{$documento->fecha}}" readonly="" /></span>
                     </p>
-                    <textarea cols="80" rows="20">{!!$documento->cuerpo!!}</textarea>
                     <p>
                         <span class="field"><div class="span8" style="width: 80%;">{!!$documento->cuerpo!!}</div></span> 
                     </p>
 
                     <p class="stdformbutton">
 
-                        
+                        <br>
                         <input type="hidden" name="num_documento" value="{{$documento->num_documento}}">
                         <a href="/documentacion/{{$documento->id_doc}}" class="btn btn-danger" role="button">Volver</a>
                         <button onclick="downloadPDF()" class="btn btn-primary">Descargar como Word</button>
