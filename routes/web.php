@@ -41,6 +41,7 @@ Route::get('/documento/downloadPDF', 'DocumentoController@downloadPDF');
 Route::get('/documentacion/lista', 'DocumentacionController@lista');
 Route::get('documentacion/descarga_lista','DocumentacionController@descarga_lista');
 
+Route::get('/actualizar_instrucciones','HomeController@actualizar_instrucciones');
 Route::post('/cambiar_imagen','HomeController@cambiar_imagen');
 
 //RUTAS AUTOCOMPLETADO EN NUEVO PROCESO

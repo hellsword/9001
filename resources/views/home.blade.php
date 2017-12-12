@@ -56,14 +56,14 @@
                     </div><!--span8-->
                     <div class="span4">
                         @if(Auth::user()->tipo=='admin')
-                            {!! Form::open(array('url'=>'documentacion/lista', 'method'=>'GET','autocomplete'=>'off', 'role'=>'search')) !!}
+                            {!! Form::open(array('url'=>'/actualizar_instrucciones', 'method'=>'GET','autocomplete'=>'off', 'role'=>'search')) !!}
                             <p>
-                                <span class="field"><input type="text" name="titulo_ins" id="rut" class="input-large" required="" placeholder="Titulo de instrucciones"  value="{{$instrucciones->titulo}}" /></span>
+                                <span class="field"><input type="text" name="titulo" id="rut" class="input-large" required="" placeholder="Titulo de instrucciones"  value="{{$instrucciones->titulo}}" /></span>
                             </p>
                             <p>
-                                <span class="field"><textarea id="autoResizeTA" name="desc_ins" cols="80" rows="5" class="span5" style="resize: vertical; resize: horizontal;" placeholder="instrucciones"> {{$instrucciones->descripcion}} </textarea></span> 
+                                <textarea id="autoResizeTA" name="descripcion" cols="80" rows="5" class="span5" style="resize: vertical; resize: horizontal;" placeholder="instrucciones"> {{$instrucciones->descripcion}} </textarea>
                             </p>
-                            &nbsp;&nbsp;<button type="submit" class="btn btn-success">Buscar</button>
+                            &nbsp;&nbsp;<button type="submit" class="btn btn-success">Actualizar</button>
                             {{Form::close()}}
                             <br>
                         @else
