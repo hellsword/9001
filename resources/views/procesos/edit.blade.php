@@ -42,7 +42,7 @@
 
                     <p>
                         <label>Implementación</label>
-                        <span class="field"><input type="text" name="implementacion" placeholder="Debe ingresar nivel de implmentación " class="input-xxlarge" value="{{$proceso->implementacion}}" required="" /></span>
+                        <span class="field"><input type="text" name="implementacion" placeholder="Debe ingresar datos de implementacion " class="input-xxlarge" value="{{$proceso->implementacion}}" required="" /></span>
                     </p>
                     <p>
                         <label>Tiempo medición (días)</label>

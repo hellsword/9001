@@ -108,8 +108,6 @@
             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="/page.html">Hola, {{ Auth::user()->nombre}} {{ Auth::user()->apellido}} <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="/usuarios/ver_perfil"><span class="icon-edit"></span> Mi perfil</a></li>
-                <li><a href=""><span class="icon-wrench"></span> Ajustes</a></li>
-                <li><a href="{{url('/mi_formacion')}}"><span class="icon-book"></span> Mi Formacion</a></li>
                  @if(Auth::user()->tipo=='admin')
                  <li><a href="/usuarios/create"><i class="icon-user"></i> Crear Usuario</a></li>
                  <li><a href="{{url('/lista')}}"><i class="icon-list-alt"></i> Lista de Usuarios</a></li>

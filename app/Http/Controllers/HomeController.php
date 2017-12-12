@@ -8,8 +8,8 @@ use Illuminate\Contracts\Auth\Guard;
 use Response;
 use Illuminate\Support\Facades\Input;
 
-//Modelos
 
+use Image; 
 use DB;
 
 class HomeController extends Controller
@@ -40,6 +40,31 @@ class HomeController extends Controller
          ->orderBy('proceso.id_proceso', 'desc')
          ->get();
 
-        return view('home', ['procesos'=> $procesos]);
+
+         $instrucciones = DB::table('instrucciones')->first();
+
+        return view('home', ['procesos'=> $procesos, 'instrucciones'=> $instrucciones]);
+    }
+
+
+    public function cambiar_imagen(Request $request){
+
+
+        $file = Input::file('imagen');
+        $path = public_path('imagenes/imagen.jpg');
+        $imagen = Image::make($file->getRealPath())->resize(1280, 820);
+        $imagen->save($path);
+
+
+
+         $procesos = DB::table('proceso')
+         ->join ('users', 'proceso.id_responsable', '=' ,'users.id')   
+         ->join ('documentacion', 'proceso.id_proceso', '=' ,'documentacion.id_proceso')   
+         ->select('users.id', 'proceso.nombre as nombre_proceso', 'users.nombre as nombre_user', 'users.apellido as apellido_user','proceso.id_proceso as id_proceso', 'documentacion.fecha_inicio as fecha_inicio')
+         ->take(5)
+         ->orderBy('proceso.id_proceso', 'desc')
+         ->get();
+
+         return Redirect::to('/home');
     }
 }
